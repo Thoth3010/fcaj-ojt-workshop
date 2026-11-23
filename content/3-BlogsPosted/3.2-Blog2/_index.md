@@ -1,31 +1,51 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+title: "Blog 2 - Fault-Tolerant Pipeline with SQS, DLQ & S3 Idempotency"
+date: 2026-11-23
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+
+{{% notice info %}}
+🔗 **AWS Study Group Post Link:** `[TODO - Update later: Paste the live URL of your post in the AWS Study Group Facebook group or awsstudygroup.com]`
 {{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# Designing a Fault-Tolerant Asynchronous Pipeline with Amazon SQS, Dead-Letter Queues (DLQ), and S3 Idempotency
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+AI inference jobs typically take 15 to 60 seconds—far too long for synchronous HTTP request-response cycles. In the **SEAL Hackathon Platform**, we built a decoupled asynchronous pipeline on AWS. Here are the key architectural patterns that keep it resilient.
 
-Key points to know:
+---
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+## 1. Dual-Queue + Dual-DLQ Topology
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+Communication between the Backend API and the AI Worker is split into two independent channels:
+- **`fcaj-ai-jobs-queue` (+ `fcaj-ai-jobs-dlq`):** Carries `AI_JOB_REQUESTED` envelopes from Backend to Worker.
+- **`fcaj-ai-results-queue` (+ `fcaj-ai-results-dlq`):** Carries `AI_JOB_COMPLETED` / `FAILED` notifications back to the Backend.
 
-...Image...
+Setting a **`RedrivePolicy` with `maxReceiveCount = 3`** ensures poison messages are isolated into the DLQ after three failed attempts—preventing infinite retry loops that waste LLM tokens or Lambda invocations.
 
-...Link...
+---
 
-...Guide...
+## 2. Handling At-Least-Once Delivery & Visibility Timeouts
+
+**Amazon SQS Standard Queues** guarantee *at-least-once* delivery, and if processing outlasts `VisibilityTimeout`, another consumer will pick up the same message. To achieve safe idempotent processing:
+
+1. **Claim-Check Pattern with Amazon S3:** Keep SQS messages lightweight (`fcaj.ai.message.v1`, `< 32 KB`) containing S3 pointers plus **SHA-256** checksums for `source.json` and `rubric.json`.
+2. **Background SQS Heartbeat:** While local inference runs on EC2, a background thread periodically invokes `sqs.change_message_visibility()` so SQS never re-dispatches an active job prematurely.
+3. **Conditional Idempotent S3 Writes (`If-None-Match: "*"`):**
+   ```python
+   s3_client.put_object(
+       Bucket=bucket,
+       Key=f"{prefix}/results/{job_id}/output.json",
+       Body=payload_bytes,
+       ContentType="application/json",
+       IfNoneMatch="*",
+   )
+   ```
+   Using S3 conditional `IfNoneMatch="*"` guarantees that even if a retry occurs, an existing output artifact is never silently overwritten.
+
+---
+
+## 3. Proactive Failure Detection with CloudWatch & SNS
+
+By attaching a **CloudWatch Alarm** to `ApproximateNumberOfMessagesVisible > 0` on both DLQs and wiring it to **Amazon SNS**, operators receive immediate email alerts whenever a job lands in a DLQ so it can be inspected and redriven cleanly.

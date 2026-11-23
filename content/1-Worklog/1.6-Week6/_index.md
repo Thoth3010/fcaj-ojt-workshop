@@ -1,57 +1,32 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-11-23
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice info %}}
+📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
 {{% /notice %}}
 
+### Week 6 Objectives (19/10/2026 – 23/10/2026)
 
-### Week 6 Objectives:
+* Finalize the AWS system architecture plan (`docs/aws-workshop-architecture-plan.md`) with the team.
+* Design strict JSON data contracts (`contracts/`) decoupling the Spring Boot Backend from the Python AI Worker.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Daily Worklog
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | References |
+| :-: | :--- | :---: | :---: | :--- |
+| **Mon** | - Reviewed the **AWS Architecture Plan**: CloudFront/S3 frontend, EC2 Docker backend, private RDS MySQL, and SQS-decoupled AI worker. | 19/10/2026 | 19/10/2026 | `docs/aws-workshop-architecture-plan.md` |
+| **Tue** | - Designed `ai-worker/contracts/input_schema.json` and `output_schema.json` (rubrics, commit SHA, criteria_results, line-level evidence). | 20/10/2026 | 20/10/2026 | `ai-worker/contracts/` |
+| **Wed** | - Aligned with Backend engineers (BE1/BE2) on the `fcaj.ai.message.v1` envelope (`AI_JOB_REQUESTED`, `AI_JOB_COMPLETED`). | 21/10/2026 | 21/10/2026 | `docs/contracts/ai-job-v1/` |
+| **Thu** | - Modeled monthly PoC cloud spend in **AWS Pricing Calculator** targeting `< 500,000 VND/month`. | 22/10/2026 | 22/10/2026 | <https://calculator.aws/> |
+| **Fri** | - Finalized the architecture proposal and scaffolded the `ai-worker/` codebase (`src/`, `contracts/`, `tests/`). | 23/10/2026 | 23/10/2026 | `ai-worker/README.md` |
 
+### Week 6 Key Achievements
 
-### Week 6 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Locked in the 6-layer AWS architecture with AI positioned strictly as an advisory assistant.
+* Published validated `sample_input.json` and `sample_output.json` contracts for parallel Backend/AI development.
+* Verified PoC cost feasibility via AWS Pricing Calculator.

@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-11-23
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice info %}}
+📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
 {{% /notice %}}
 
+### Mục tiêu tuần 4 (05/10/2026 – 09/10/2026)
 
-### Mục tiêu tuần 4:
+* Làm chủ kiến trúc **Serverless & Event-Driven**: **AWS Lambda**, **Amazon SQS**, và **Dead-Letter Queue (DLQ)**.
+* Tìm hiểu dịch vụ cơ sở dữ liệu quản lý **Amazon RDS MySQL** & bảo vệ biên **AWS WAF / CloudFront**.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Nhật ký công việc hàng ngày
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :-: | :--- | :---: | :---: | :--- |
+| **2** | - Nghiên cứu **Amazon SQS**: Standard vs FIFO, Long Polling (`20s`), `VisibilityTimeout` và cấu hình `RedrivePolicy` sang **DLQ**. | 05/10/2026 | 05/10/2026 | <https://docs.aws.amazon.com/sqs/> |
+| **3** | - Tìm hiểu **AWS Lambda** (Python 3.12 runtime): Event Source Mapping với SQS, `ReportBatchItemFailures` và `MaximumConcurrency`. | 06/10/2026 | 06/10/2026 | <https://docs.aws.amazon.com/lambda/> |
+| **4** | - Thực hành tạo cặp hàng đợi SQS + DLQ và hàm Lambda đọc thông điệp từ SQS qua AWS CLI (`boto3`). | 07/10/2026 | 07/10/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| **5** | - Tìm hiểu **Amazon RDS MySQL 8.4**: DB Subnet Group trong Private Subnet, Parameter Group TLS và backup/restore tự động. | 08/10/2026 | 08/10/2026 | <https://docs.aws.amazon.com/rds/> |
+| **6** | - Tìm hiểu **AWS WAF** (Rate-based rule, Managed Rules) và **Amazon ECR** lưu trữ Docker image bảo mật. | 09/10/2026 | 09/10/2026 | <https://docs.aws.amazon.com/waf/> |
 
+### Kết quả đạt được tuần 4
 
-### Kết quả đạt được tuần 4:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu rõ cách dùng SQS + DLQ để tách biệt luồng xử lý nặng, chống mất job và giới hạn vòng lặp retry lỗi.
+* Triển khai thử nghiệm thành công trigger AWS Lambda từ SQS với `BatchSize=1` và cơ chế `ReportBatchItemFailures`.
+* Nắm vững mô hình đặt RDS trong Private Subnet chỉ cho phép kết nối từ Security Group của tầng Backend.

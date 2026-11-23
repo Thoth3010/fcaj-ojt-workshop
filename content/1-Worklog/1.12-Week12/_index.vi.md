@@ -1,58 +1,32 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+date: 2026-11-23
+weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice info %}}
+📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần (lưu ý quy định nộp Workshop **15 ngày trước ngày cần mộc**).
 {{% /notice %}}
 
-### Mục tiêu tuần 12:
+### Mục tiêu tuần 12 (30/11/2026 – 04/12/2026)
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Quay video / chuẩn bị **Live Demo** sản phẩm chạy thực tế (E2E job từ SQS -> AI Worker -> S3 Results -> CloudWatch Logs).
+* Rà soát toàn bộ minh chứng (3 Blogs, 3 Events có ảnh check-in rõ mặt, 10 buổi lên văn phòng nếu xin mộc) và dọn dẹp sạch tài nguyên AWS.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Nhật ký công việc hàng ngày
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :-: | :--- | :---: | :---: | :--- |
+| **2** | - Diễn tập chạy thử quy trình E2E từ khâu gửi job mẫu vào `fcaj-ai-jobs-queue` đến khi nhận output chuẩn xác trên S3 & `fcaj-ai-results-queue`. | 30/11/2026 | 30/11/2026 | `content/5-Workshop/5.5-Testing-Monitoring/` |
+| **3** | - Kiểm tra kịch bản lỗi (fault injection): gửi message sai schema để xác nhận job nhảy sang DLQ và kích hoạt **CloudWatch Alarm -> SNS Email**. | 01/12/2026 | 01/12/2026 | <https://docs.aws.amazon.com/cloudwatch/> |
+| **4** | - Quay video minh chứng Live Demo, cập nhật link blog AWS Study Group, ảnh check-in 3 sự kiện và ảnh đại diện cá nhân. | 02/12/2026 | 02/12/2026 | `content/` |
+| **5** | - Chạy toàn bộ quy trình **Clean-up tài nguyên** (xóa Lambda, SQS/DLQ, empty & xóa S3 bucket, SSM, CloudWatch Alarm) và kiểm tra Billing `$0.00`. | 03/12/2026 | 03/12/2026 | `content/5-Workshop/5.6-Cleanup/` |
+| **6** | - Hoàn tất rà soát lần cuối toàn bộ báo cáo song ngữ, nộp link Workshop website đúng hạn (trước ngày cần mộc ít nhất 15 ngày). | 04/12/2026 | 04/12/2026 | <https://hcm-rules.awsfcaj.com/project> |
 
-### Kết quả đạt được tuần 12:
+### Kết quả đạt được tuần 12
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thành 100% các hạng mục bắt buộc của báo cáo OJT FCAJ (chiếm 60% điểm OJT) đúng tiến độ.
+* Hệ thống AI Judge Pipeline vượt qua đầy đủ các bài kiểm thử chức năng, bảo mật và giám sát thực tế.
+* Tài khoản AWS được dọn dẹp sạch sẽ, không còn tài nguyên tồn đọng phát sinh chi phí.

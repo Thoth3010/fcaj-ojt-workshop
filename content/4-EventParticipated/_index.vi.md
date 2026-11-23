@@ -1,46 +1,25 @@
 ---
 title: "Các events đã tham gia"
-date: 2024-01-01
+date: 2026-11-23
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+{{% notice info %}}
+📝 **`[TODO - Viết lại sau]`:** Theo quy định nhận mộc thực tập FCAJ, bạn cần tham gia **tối thiểu 3 sự kiện chuyên môn / cộng đồng** và đính kèm **hình ảnh check-in rõ mặt hợp lệ** cho từng sự kiện. Dưới đây là 3 trang sự kiện đã tạo sẵn đầy đủ 7 trường thông tin bắt buộc — bạn hãy cập nhật lại tên sự kiện thực tế, thời gian, địa điểm và chèn ảnh check-in vào `static/images/4-EventParticipated/` nhé!
 {{% /notice %}}
 
-> Trong phần này, các bạn cần liệt kê và mô tả chi tiết các sự kiện (event) mà mình đã tham gia trong suốt quá trình thực tập hoặc làm việc. 
-> 
-> Mỗi sự kiện nên được trình bày theo định dạng Event 1, Event 2, Event 3…, kèm theo các thông tin:
-> * Tên sự kiện
-> * Thời gian tổ chức
-> * Địa điểm (nếu có)
-> * Vai trò của bạn trong sự kiện (người tham dự, hỗ trợ tổ chức, diễn giả, v.v.)
-> * Mô tả ngắn gọn nội dung và hoạt động chính trong sự kiện
-> * Kết quả hoặc giá trị đạt được (bài học, kỹ năng mới, đóng góp cho nhóm/dự án)
-> * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
+### Danh sách 3 Sự kiện đã tham gia (Minimum 3 Events Required)
 
+1. **[Event 1 - AWS Cloud & AI Kick-off / Workshop Cộng đồng](4.1-Event1/)**
+   - *Thời gian:* `[TODO - Viết lại sau: dd/mm/yyyy]` | *Vai trò:* Người tham dự (Attendee)
+   - *Trạng thái minh chứng:* `[TODO - Viết lại sau: Đính kèm ảnh check-in rõ mặt]`
 
-Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
+2. **[Event 2 - Kiến trúc Serverless, Event-Driven & Tối ưu Chi phí trên AWS](4.2-Event2/)**
+   - *Thời gian:* `[TODO - Viết lại sau: dd/mm/yyyy]` | *Vai trò:* Người tham dự (Attendee)
+   - *Trạng thái minh chứng:* `[TODO - Viết lại sau: Đính kèm ảnh check-in rõ mặt]`
 
-### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
-
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
-
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
-
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
-
-
-
-### [Event 2](4.2-Event2/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
-
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
-
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
-
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
-
+3. **[Event 3 - GenAI & Modern Cloud Applications Workshop / Study Group Meetup](4.3-Event3/)**
+   - *Thời gian:* `[TODO - Viết lại sau: dd/mm/yyyy]` | *Vai trò:* Người tham dự / Thành viên thảo luận
+   - *Trạng thái minh chứng:* `[TODO - Viết lại sau: Đính kèm ảnh check-in rõ mặt]`

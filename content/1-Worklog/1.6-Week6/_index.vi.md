@@ -1,58 +1,32 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-11-23
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice info %}}
+📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
 {{% /notice %}}
 
+### Mục tiêu tuần 6 (19/10/2026 – 23/10/2026)
 
-### Mục tiêu tuần 6:
+* Tham gia thảo luận và chốt kế hoạch kiến trúc AWS (`docs/aws-workshop-architecture-plan.md`).
+* Thiết kế hợp đồng dữ liệu JSON (`contracts/`) kết nối giữa Spring Boot Backend và Python AI Worker.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Nhật ký công việc hàng ngày
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :-: | :--- | :---: | :---: | :--- |
+| **2** | - Tham gia review **AWS Workshop Architecture Plan**: tách frontend (S3+CloudFront), backend (EC2 Docker), DB (RDS) và AI Worker qua SQS. | 19/10/2026 | 19/10/2026 | `docs/aws-workshop-architecture-plan.md` |
+| **3** | - Thiết kế cấu trúc `ai-worker/contracts/input_schema.json` & `output_schema.json` (rubric, commit SHA, criteria_results, evidence). | 20/10/2026 | 20/10/2026 | `ai-worker/contracts/` |
+| **4** | - Thống nhất hợp đồng thông điệp bất đồng bộ `fcaj.ai.message.v1` với BE1/BE2 (`AI_JOB_REQUESTED`, `AI_JOB_COMPLETED`). | 21/10/2026 | 21/10/2026 | `docs/contracts/ai-job-v1/` |
+| **5** | - Tính toán dự toán chi phí ban đầu bằng **AWS Pricing Calculator** đảm bảo mục tiêu tự vận hành PoC `< 500.000 VNĐ/tháng`. | 22/10/2026 | 22/10/2026 | <https://calculator.aws/> |
+| **6** | - Hoàn thiện tài liệu Proposal và tạo skeleton thư mục `ai-worker/` (`src/`, `contracts/`, `tests/`). | 23/10/2026 | 23/10/2026 | `ai-worker/README.md` |
 
+### Kết quả đạt được tuần 6
 
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Chốt xong kiến trúc AWS tổng thể 6 lớp và tách biệt hoàn toàn vai trò AI làm Technical Advisor.
+* Hoàn thiện bộ JSON Schema đầu vào/đầu ra và mẫu `sample_input.json` / `sample_output.json` làm chuẩn tích hợp.
+* Xây dựng xong bảng dự toán chi phí AWS Pricing Calculator cho giai đoạn PoC.

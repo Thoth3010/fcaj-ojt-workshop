@@ -1,242 +1,63 @@
 ---
-title : "Prerequiste"
-date : 2024-01-01 
-weight : 2 
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "Prerequisites & Cost Estimation"
+date: 2026-11-23
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
 
-#### IAM permissions
-Add the following IAM permission policy to your user account to deploy and cleanup this workshop.
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:*",
-                "cloudwatch:*",
-                "ec2:AcceptTransitGatewayPeeringAttachment",
-                "ec2:AcceptTransitGatewayVpcAttachment",
-                "ec2:AllocateAddress",
-                "ec2:AssociateAddress",
-                "ec2:AssociateIamInstanceProfile",
-                "ec2:AssociateRouteTable",
-                "ec2:AssociateSubnetCidrBlock",
-                "ec2:AssociateTransitGatewayRouteTable",
-                "ec2:AssociateVpcCidrBlock",
-                "ec2:AttachInternetGateway",
-                "ec2:AttachNetworkInterface",
-                "ec2:AttachVolume",
-                "ec2:AttachVpnGateway",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:CreateClientVpnEndpoint",
-                "ec2:CreateClientVpnRoute",
-                "ec2:CreateCustomerGateway",
-                "ec2:CreateDhcpOptions",
-                "ec2:CreateFlowLogs",
-                "ec2:CreateInternetGateway",
-                "ec2:CreateLaunchTemplate",
-                "ec2:CreateNetworkAcl",
-                "ec2:CreateNetworkInterface",
-                "ec2:CreateNetworkInterfacePermission",
-                "ec2:CreateRoute",
-                "ec2:CreateRouteTable",
-                "ec2:CreateSecurityGroup",
-                "ec2:CreateSubnet",
-                "ec2:CreateSubnetCidrReservation",
-                "ec2:CreateTags",
-                "ec2:CreateTransitGateway",
-                "ec2:CreateTransitGatewayPeeringAttachment",
-                "ec2:CreateTransitGatewayPrefixListReference",
-                "ec2:CreateTransitGatewayRoute",
-                "ec2:CreateTransitGatewayRouteTable",
-                "ec2:CreateTransitGatewayVpcAttachment",
-                "ec2:CreateVpc",
-                "ec2:CreateVpcEndpoint",
-                "ec2:CreateVpcEndpointConnectionNotification",
-                "ec2:CreateVpcEndpointServiceConfiguration",
-                "ec2:CreateVpnConnection",
-                "ec2:CreateVpnConnectionRoute",
-                "ec2:CreateVpnGateway",
-                "ec2:DeleteCustomerGateway",
-                "ec2:DeleteFlowLogs",
-                "ec2:DeleteInternetGateway",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DeleteNetworkInterfacePermission",
-                "ec2:DeleteRoute",
-                "ec2:DeleteRouteTable",
-                "ec2:DeleteSecurityGroup",
-                "ec2:DeleteSubnet",
-                "ec2:DeleteSubnetCidrReservation",
-                "ec2:DeleteTags",
-                "ec2:DeleteTransitGateway",
-                "ec2:DeleteTransitGatewayPeeringAttachment",
-                "ec2:DeleteTransitGatewayPrefixListReference",
-                "ec2:DeleteTransitGatewayRoute",
-                "ec2:DeleteTransitGatewayRouteTable",
-                "ec2:DeleteTransitGatewayVpcAttachment",
-                "ec2:DeleteVpc",
-                "ec2:DeleteVpcEndpoints",
-                "ec2:DeleteVpcEndpointServiceConfigurations",
-                "ec2:DeleteVpnConnection",
-                "ec2:DeleteVpnConnectionRoute",
-                "ec2:Describe*",
-                "ec2:DetachInternetGateway",
-                "ec2:DisassociateAddress",
-                "ec2:DisassociateRouteTable",
-                "ec2:GetLaunchTemplateData",
-                "ec2:GetTransitGatewayAttachmentPropagations",
-                "ec2:ModifyInstanceAttribute",
-                "ec2:ModifySecurityGroupRules",
-                "ec2:ModifyTransitGatewayVpcAttachment",
-                "ec2:ModifyVpcAttribute",
-                "ec2:ModifyVpcEndpoint",
-                "ec2:ReleaseAddress",
-                "ec2:ReplaceRoute",
-                "ec2:RevokeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress",
-                "ec2:RunInstances",
-                "ec2:StartInstances",
-                "ec2:StopInstances",
-                "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
-                "ec2:UpdateSecurityGroupRuleDescriptionsIngress",
-                "iam:AddRoleToInstanceProfile",
-                "iam:AttachRolePolicy",
-                "iam:CreateInstanceProfile",
-                "iam:CreatePolicy",
-                "iam:CreateRole",
-                "iam:DeleteInstanceProfile",
-                "iam:DeletePolicy",
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:GetInstanceProfile",
-                "iam:GetPolicy",
-                "iam:GetRole",
-                "iam:GetRolePolicy",
-                "iam:ListPolicyVersions",
-                "iam:ListRoles",
-                "iam:PassRole",
-                "iam:PutRolePolicy",
-                "iam:RemoveRoleFromInstanceProfile",
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:DeleteLayerVersion",
-                "lambda:GetFunction",
-                "lambda:GetLayerVersion",
-                "lambda:InvokeFunction",
-                "lambda:PublishLayerVersion",
-                "logs:CreateLogGroup",
-                "logs:DeleteLogGroup",
-                "logs:DescribeLogGroups",
-                "logs:PutRetentionPolicy",
-                "route53:ChangeTagsForResource",
-                "route53:CreateHealthCheck",
-                "route53:CreateHostedZone",
-                "route53:CreateTrafficPolicy",
-                "route53:DeleteHostedZone",
-                "route53:DisassociateVPCFromHostedZone",
-                "route53:GetHostedZone",
-                "route53:ListHostedZones",
-                "route53domains:ListDomains",
-                "route53domains:ListOperations",
-                "route53domains:ListTagsForDomain",
-                "route53resolver:AssociateResolverEndpointIpAddress",
-                "route53resolver:AssociateResolverRule",
-                "route53resolver:CreateResolverEndpoint",
-                "route53resolver:CreateResolverRule",
-                "route53resolver:DeleteResolverEndpoint",
-                "route53resolver:DeleteResolverRule",
-                "route53resolver:DisassociateResolverEndpointIpAddress",
-                "route53resolver:DisassociateResolverRule",
-                "route53resolver:GetResolverEndpoint",
-                "route53resolver:GetResolverRule",
-                "route53resolver:ListResolverEndpointIpAddresses",
-                "route53resolver:ListResolverEndpoints",
-                "route53resolver:ListResolverRuleAssociations",
-                "route53resolver:ListResolverRules",
-                "route53resolver:ListTagsForResource",
-                "route53resolver:UpdateResolverEndpoint",
-                "route53resolver:UpdateResolverRule",
-                "s3:AbortMultipartUpload",
-                "s3:CreateBucket",
-                "s3:DeleteBucket",
-                "s3:DeleteObject",
-                "s3:GetAccountPublicAccessBlock",
-                "s3:GetBucketAcl",
-                "s3:GetBucketOwnershipControls",
-                "s3:GetBucketPolicy",
-                "s3:GetBucketPolicyStatus",
-                "s3:GetBucketPublicAccessBlock",
-                "s3:GetObject",
-                "s3:GetObjectVersion",
-                "s3:GetBucketVersioning",
-                "s3:ListAccessPoints",
-                "s3:ListAccessPointsForObjectLambda",
-                "s3:ListAllMyBuckets",
-                "s3:ListBucket",
-                "s3:ListBucketMultipartUploads",
-                "s3:ListBucketVersions",
-                "s3:ListJobs",
-                "s3:ListMultipartUploadParts",
-                "s3:ListMultiRegionAccessPoints",
-                "s3:ListStorageLensConfigurations",
-                "s3:PutAccountPublicAccessBlock",
-                "s3:PutBucketAcl",
-                "s3:PutBucketPolicy",
-                "s3:PutBucketPublicAccessBlock",
-                "s3:PutObject",
-                "secretsmanager:CreateSecret",
-                "secretsmanager:DeleteSecret",
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:ListSecrets",
-                "secretsmanager:ListSecretVersionIds",
-                "secretsmanager:PutResourcePolicy",
-                "secretsmanager:TagResource",
-                "secretsmanager:UpdateSecret",
-                "sns:ListTopics",
-                "ssm:DescribeInstanceProperties",
-                "ssm:DescribeSessions",
-                "ssm:GetConnectionStatus",
-                "ssm:GetParameters",
-                "ssm:ListAssociations",
-                "ssm:ResumeSession",
-                "ssm:StartSession",
-                "ssm:TerminateSession"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+### 1. Prerequisites
 
+Before starting the hands-on steps, ensure you have:
+
+- **AWS Account:** Recommended region **`ap-southeast-1` (Singapore)** for low latency in Vietnam, with Root MFA enabled and **AWS Budgets** alerts configured (`$1` / `$5`).
+- **IAM Permissions:** An IAM User/Role permitted to manage S3 buckets, SQS queues, SSM parameters, IAM execution roles, Lambda/EC2, and CloudWatch Alarms.
+- **Local Tooling:**
+  - **AWS CLI v2** (authenticated via `aws login` or `aws configure`)
+  - **Python 3.12+** and **Git**
+  - **Reference AI Worker Source:** `ai-worker/` (`src/`, `scripts/`, `tests/`).
+
+Quick environment verification:
+```bash
+aws --version
+aws sts get-caller-identity --region ap-southeast-1
+python --version
 ```
 
-#### Provision resources using CloudFormation
+---
 
-In this lab, we will use **N.Virginia region (us-east-1)**.
+### 2. Detailed Cost Estimation (AWS Pricing Calculator — `ap-southeast-1`)
 
-To prepare the workshop environment, deploy this **CloudFormation Template** (click link): [PrivateLinkWorkshop ](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.us-east-1.amazonaws.com/reinvent-endpoints-builders-session/Nested.yaml&stackName=PLCloudSetup). Accept all of the defaults when deploying the template. 
+{{% notice warning %}}
+💰 **Mandatory Cost Section:** The figures below are modeled using the **AWS Pricing Calculator** in `ap-southeast-1` for a realistic workload of **200 AI grading jobs per month** (one 50-team hackathon round).
+{{% /notice %}}
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack1.png)
+#### Scenario 1: Serverless Workshop Mode (Option B — AWS Lambda + S3 + SQS + CloudWatch)
 
-+ Tick 2 acknowledgement boxes
-+ Choose **Create stack**
+| AWS Service | Configuration | Monthly Volume | Unit Rate | Est. Monthly Cost |
+| :--- | :--- | :--- | :--- | :---: |
+| **Amazon S3** | Private Standard Bucket (Block Public Access) | `1 GB` stored, `2,000 PUT`, `4,000 GET` | `$0.025/GB` (5 GB Free Tier Year 1) | **$0.03** |
+| **Amazon SQS** | 4 Standard Queues (`Jobs`, `Jobs-DLQ`, `Results`, `Results-DLQ`) | `~10,000 requests` | `$0.40 / 1M req` (Always Free `1M` req) | **$0.00** |
+| **AWS Lambda** | Python 3.12, `512 MB RAM`, avg `20s/job` | `200 invocations` (`2,000 GB-s`) | Always Free `400,000 GB-s` & `1M` req | **$0.00** |
+| **SSM Parameter Store** | 1 Standard `SecureString` Parameter | `< 10,000 API calls` | Standard tier is free | **$0.00** |
+| **CloudWatch & SNS** | Log Group (14-day retention), `2 Alarms`, Email SNS | `< 1 GB` logs, `2` alarms | Free Tier `5 GB` logs & `10` alarms | **$0.00** |
+| **Cloud AI API (DeepSeek)** | `deepseek-chat` (`~117k in / 4k out tokens` per job) | `200 jobs` (Off-peak `$0.02/job`) | `$0.15/1M in`, `$0.60/1M out` | **~$3.50 – $4.00** |
+| **TOTAL (Serverless)** | | | | **~$3.53 – $4.03 / month** |
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack2.png)
+#### Scenario 2: Private Local LLM Mode on AWS EC2 (Option A — Zero External Source Transfer)
 
-The **ClouddFormation** deployment requires about 15 minutes to complete.
+| EC2 Configuration (`ap-southeast-1`) | Monthly Active Hours | Compute Cost | EBS `30 GB gp3` | Est. Monthly Total |
+| :--- | :--- | :---: | :---: | :---: |
+| **Free Tier Smoke Test (`t3.small` / `m7i-flex.large`)** | 2-hour lab test then `Terminate` | `$0.00` (Free Tier) | `$0.00` | **$0.00** |
+| **Production GPU Spot (`g4dn.xlarge` — 1x T4 16GB VRAM)** | Active during judging windows: **`20 hrs/mo`** (`~$0.18/hr` Spot) | `$3.60` | `$2.88` | **~$6.48 / month** |
+| **Comparison: 24/7 On-Demand (`g4dn.xlarge`)** | `730 hrs/mo` (`$0.526/hr`) | `$383.98` | `$2.88` | **$386.86 / month** |
 
-![complete](/images/5-Workshop/5.2-Prerequisite/complete.png)
+---
 
-+ **2 VPCs** have been created
+### 3. Cost Optimization Best Practices Applied
 
-![vpcs](/images/5-Workshop/5.2-Prerequisite/vpcs.png)
-
-+ **3 EC2s** have been created
-
-![EC2](/images/5-Workshop/5.2-Prerequisite/ec2.png)
+1. **SQS-Buffered On-Demand GPU Execution (-98.4% Compute Spend):** Because SQS safely retains jobs for up to 14 days, the GPU EC2 stays `Stopped` (`$0/hr`) whenever no hackathon judging window is active.
+2. **EC2 Fail-Safe Auto-Shutdown:** `setup_ec2_ollama.sh` schedules `shutdown -h +45` to prevent accidental overnight GPU billing.
+3. **`q8_0` KV-Cache & `/no_think` Mode:** Fits `Qwen3-14B` cleanly within a 16GB T4 (`g4dn.xlarge`) instead of a 2x more expensive `g5.xlarge`, while slashing per-job duration by 65%.
+4. **S3 Lifecycle & Short Log Retention:** Expire temporary source snapshots after 30 days and cap CloudWatch Log retention at 7–14 days.
+5. **AWS Free Tier & Concurrency Caps:** Lambda `MaximumConcurrency = 2` keeps usage safely inside Free Tier limits and caps third-party API bursts.

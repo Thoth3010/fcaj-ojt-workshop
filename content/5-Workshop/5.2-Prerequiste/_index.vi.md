@@ -1,242 +1,63 @@
 ---
-title : "Các bước chuẩn bị"
-date : 2024-01-01 
-weight : 2
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "Điều kiện tiên quyết & Dự toán chi phí"
+date: 2026-11-23
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
 
-#### IAM permissions
-Gắn IAM permission policy sau vào tài khoản aws user của bạn để triển khai và dọn dẹp tài nguyên trong workshop này.
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:*",
-                "cloudwatch:*",
-                "ec2:AcceptTransitGatewayPeeringAttachment",
-                "ec2:AcceptTransitGatewayVpcAttachment",
-                "ec2:AllocateAddress",
-                "ec2:AssociateAddress",
-                "ec2:AssociateIamInstanceProfile",
-                "ec2:AssociateRouteTable",
-                "ec2:AssociateSubnetCidrBlock",
-                "ec2:AssociateTransitGatewayRouteTable",
-                "ec2:AssociateVpcCidrBlock",
-                "ec2:AttachInternetGateway",
-                "ec2:AttachNetworkInterface",
-                "ec2:AttachVolume",
-                "ec2:AttachVpnGateway",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:CreateClientVpnEndpoint",
-                "ec2:CreateClientVpnRoute",
-                "ec2:CreateCustomerGateway",
-                "ec2:CreateDhcpOptions",
-                "ec2:CreateFlowLogs",
-                "ec2:CreateInternetGateway",
-                "ec2:CreateLaunchTemplate",
-                "ec2:CreateNetworkAcl",
-                "ec2:CreateNetworkInterface",
-                "ec2:CreateNetworkInterfacePermission",
-                "ec2:CreateRoute",
-                "ec2:CreateRouteTable",
-                "ec2:CreateSecurityGroup",
-                "ec2:CreateSubnet",
-                "ec2:CreateSubnetCidrReservation",
-                "ec2:CreateTags",
-                "ec2:CreateTransitGateway",
-                "ec2:CreateTransitGatewayPeeringAttachment",
-                "ec2:CreateTransitGatewayPrefixListReference",
-                "ec2:CreateTransitGatewayRoute",
-                "ec2:CreateTransitGatewayRouteTable",
-                "ec2:CreateTransitGatewayVpcAttachment",
-                "ec2:CreateVpc",
-                "ec2:CreateVpcEndpoint",
-                "ec2:CreateVpcEndpointConnectionNotification",
-                "ec2:CreateVpcEndpointServiceConfiguration",
-                "ec2:CreateVpnConnection",
-                "ec2:CreateVpnConnectionRoute",
-                "ec2:CreateVpnGateway",
-                "ec2:DeleteCustomerGateway",
-                "ec2:DeleteFlowLogs",
-                "ec2:DeleteInternetGateway",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DeleteNetworkInterfacePermission",
-                "ec2:DeleteRoute",
-                "ec2:DeleteRouteTable",
-                "ec2:DeleteSecurityGroup",
-                "ec2:DeleteSubnet",
-                "ec2:DeleteSubnetCidrReservation",
-                "ec2:DeleteTags",
-                "ec2:DeleteTransitGateway",
-                "ec2:DeleteTransitGatewayPeeringAttachment",
-                "ec2:DeleteTransitGatewayPrefixListReference",
-                "ec2:DeleteTransitGatewayRoute",
-                "ec2:DeleteTransitGatewayRouteTable",
-                "ec2:DeleteTransitGatewayVpcAttachment",
-                "ec2:DeleteVpc",
-                "ec2:DeleteVpcEndpoints",
-                "ec2:DeleteVpcEndpointServiceConfigurations",
-                "ec2:DeleteVpnConnection",
-                "ec2:DeleteVpnConnectionRoute",
-                "ec2:Describe*",
-                "ec2:DetachInternetGateway",
-                "ec2:DisassociateAddress",
-                "ec2:DisassociateRouteTable",
-                "ec2:GetLaunchTemplateData",
-                "ec2:GetTransitGatewayAttachmentPropagations",
-                "ec2:ModifyInstanceAttribute",
-                "ec2:ModifySecurityGroupRules",
-                "ec2:ModifyTransitGatewayVpcAttachment",
-                "ec2:ModifyVpcAttribute",
-                "ec2:ModifyVpcEndpoint",
-                "ec2:ReleaseAddress",
-                "ec2:ReplaceRoute",
-                "ec2:RevokeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress",
-                "ec2:RunInstances",
-                "ec2:StartInstances",
-                "ec2:StopInstances",
-                "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
-                "ec2:UpdateSecurityGroupRuleDescriptionsIngress",
-                "iam:AddRoleToInstanceProfile",
-                "iam:AttachRolePolicy",
-                "iam:CreateInstanceProfile",
-                "iam:CreatePolicy",
-                "iam:CreateRole",
-                "iam:DeleteInstanceProfile",
-                "iam:DeletePolicy",
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:GetInstanceProfile",
-                "iam:GetPolicy",
-                "iam:GetRole",
-                "iam:GetRolePolicy",
-                "iam:ListPolicyVersions",
-                "iam:ListRoles",
-                "iam:PassRole",
-                "iam:PutRolePolicy",
-                "iam:RemoveRoleFromInstanceProfile",
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:DeleteLayerVersion",
-                "lambda:GetFunction",
-                "lambda:GetLayerVersion",
-                "lambda:InvokeFunction",
-                "lambda:PublishLayerVersion",
-                "logs:CreateLogGroup",
-                "logs:DeleteLogGroup",
-                "logs:DescribeLogGroups",
-                "logs:PutRetentionPolicy",
-                "route53:ChangeTagsForResource",
-                "route53:CreateHealthCheck",
-                "route53:CreateHostedZone",
-                "route53:CreateTrafficPolicy",
-                "route53:DeleteHostedZone",
-                "route53:DisassociateVPCFromHostedZone",
-                "route53:GetHostedZone",
-                "route53:ListHostedZones",
-                "route53domains:ListDomains",
-                "route53domains:ListOperations",
-                "route53domains:ListTagsForDomain",
-                "route53resolver:AssociateResolverEndpointIpAddress",
-                "route53resolver:AssociateResolverRule",
-                "route53resolver:CreateResolverEndpoint",
-                "route53resolver:CreateResolverRule",
-                "route53resolver:DeleteResolverEndpoint",
-                "route53resolver:DeleteResolverRule",
-                "route53resolver:DisassociateResolverEndpointIpAddress",
-                "route53resolver:DisassociateResolverRule",
-                "route53resolver:GetResolverEndpoint",
-                "route53resolver:GetResolverRule",
-                "route53resolver:ListResolverEndpointIpAddresses",
-                "route53resolver:ListResolverEndpoints",
-                "route53resolver:ListResolverRuleAssociations",
-                "route53resolver:ListResolverRules",
-                "route53resolver:ListTagsForResource",
-                "route53resolver:UpdateResolverEndpoint",
-                "route53resolver:UpdateResolverRule",
-                "s3:AbortMultipartUpload",
-                "s3:CreateBucket",
-                "s3:DeleteBucket",
-                "s3:DeleteObject",
-                "s3:GetAccountPublicAccessBlock",
-                "s3:GetBucketAcl",
-                "s3:GetBucketOwnershipControls",
-                "s3:GetBucketPolicy",
-                "s3:GetBucketPolicyStatus",
-                "s3:GetBucketPublicAccessBlock",
-                "s3:GetObject",
-                "s3:GetObjectVersion",
-                "s3:GetBucketVersioning",
-                "s3:ListAccessPoints",
-                "s3:ListAccessPointsForObjectLambda",
-                "s3:ListAllMyBuckets",
-                "s3:ListBucket",
-                "s3:ListBucketMultipartUploads",
-                "s3:ListBucketVersions",
-                "s3:ListJobs",
-                "s3:ListMultipartUploadParts",
-                "s3:ListMultiRegionAccessPoints",
-                "s3:ListStorageLensConfigurations",
-                "s3:PutAccountPublicAccessBlock",
-                "s3:PutBucketAcl",
-                "s3:PutBucketPolicy",
-                "s3:PutBucketPublicAccessBlock",
-                "s3:PutObject",
-                "secretsmanager:CreateSecret",
-                "secretsmanager:DeleteSecret",
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:ListSecrets",
-                "secretsmanager:ListSecretVersionIds",
-                "secretsmanager:PutResourcePolicy",
-                "secretsmanager:TagResource",
-                "secretsmanager:UpdateSecret",
-                "sns:ListTopics",
-                "ssm:DescribeInstanceProperties",
-                "ssm:DescribeSessions",
-                "ssm:GetConnectionStatus",
-                "ssm:GetParameters",
-                "ssm:ListAssociations",
-                "ssm:ResumeSession",
-                "ssm:StartSession",
-                "ssm:TerminateSession"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+### 1. Điều kiện tiên quyết (Prerequisites)
 
+Trước khi bắt đầu triển khai các bước trong Workshop, bạn cần chuẩn bị:
+
+- **Tài khoản AWS:** Khuyến nghị sử dụng Region **`ap-southeast-1` (Singapore)** để tối ưu độ trễ kết nối từ Việt Nam; đã bật MFA và cài **AWS Budgets** cảnh báo chi tiêu (`$1` / `$5`).
+- **Quyền IAM cần thiết:** IAM User/Role có quyền quản trị giới hạn cho Workshop (khởi tạo S3 bucket, SQS queue, SSM Parameter, IAM Role cho Worker, Lambda/EC2 và CloudWatch Alarm).
+- **Công cụ trên máy cục bộ:**
+  - **AWS CLI v2** (đã xác thực qua `aws login` hoặc `aws configure`)
+  - **Python 3.12+** và **Git**
+  - **Code mẫu AI Worker:** [fcaj-hackathon-system/ai-worker](file:///D:/FCAJ/fcaj-hackathon-system/ai-worker) (bao gồm `src/`, `scripts/`, `tests/`).
+
+Kiểm tra nhanh môi trường trên Terminal trước khi bắt đầu:
+```bash
+aws --version
+aws sts get-caller-identity --region ap-southeast-1
+python --version
 ```
 
-#### Khởi tạo tài nguyên bằng CloudFormation
+---
 
-Trong lab này, chúng ta sẽ dùng N.Virginia region (us-east-1).
+### 2. Bảng Dự toán Chi phí Chi tiết (AWS Pricing Calculator — `ap-southeast-1`)
 
-Để chuẩn bị cho môi trường làm workshop, chúng ta deploy CloudFormation template sau (click link): [PrivateLinkWorkshop ](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.us-east-1.amazonaws.com/reinvent-endpoints-builders-session/Nested.yaml&stackName=PLCloudSetup). Để nguyên các lựa chọn mặc định.
+{{% notice warning %}}
+💰 **Hạng mục BẮT BUỘC (Cost Estimation):** Toàn bộ tính toán bên dưới được ước lượng theo **AWS Pricing Calculator** tại Region `ap-southeast-1` cho kịch bản thực tế **200 lượt chấm AI / tháng** (~1 đợt Hackathon 50 đội thi).
+{{% /notice %}}
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack1.png)
+#### Kịch bản 1: Triển khai Workshop / Serverless Lab (Option B — AWS Lambda + S3 + SQS + CloudWatch)
 
-+ Lựa chọn 2 mục acknowledgement 
-+ Chọn Create stack
+| Dịch vụ AWS | Thông số cấu hình | Lưu lượng / Tháng | Đơn giá tham khảo | Chi phí / Tháng |
+| :--- | :--- | :--- | :--- | :---: |
+| **Amazon S3** | Standard Storage (`Private Bucket`), Block Public Access | `1 GB` lưu trữ, `2,000 PUT`, `4,000 GET` | `$0.025/GB` (Free Tier 5 GB năm đầu) | **$0.03** |
+| **Amazon SQS** | 4 Standard Queues (`Jobs`, `Jobs-DLQ`, `Results`, `Results-DLQ`) | `~10,000 requests` | `$0.40 / 1M requests` (Always Free `1M` req) | **$0.00** |
+| **AWS Lambda** | Python 3.12, `512 MB RAM`, trung bình `20s/job` | `200 invocations` (`2,000 GB-s`) | Always Free `400,000 GB-s` & `1M` req | **$0.00** |
+| **SSM Parameter Store** | 1 Standard Parameter (`SecureString`) | `< 10,000 API calls` | Standard Parameter miễn phí | **$0.00** |
+| **CloudWatch & SNS** | Log Group (Retention 14 ngày), `2 Standard Alarms`, Email SNS | `< 1 GB` logs, `2` alarms | Free Tier `5 GB` logs & `10` alarms | **$0.00** |
+| **Cloud AI API (DeepSeek)** | `deepSeek-chat` (`~117k in / 4k out tokens` mỗi job) | `200 jobs` (Off-peak `$0.02/job`) | `$0.15/1M in`, `$0.60/1M out` | **~$3.50 – $4.00** |
+| **TỔNG CỘNG (Serverless)** | | | | **~$3.53 – $4.03 / tháng** |
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack2.png)
+#### Kịch bản 2: Triển khai Local AI trên AWS EC2 (Option A — Không gửi code ra bên ngoài)
 
-Quá trình triển khai CloudFormation cần khoảng 15 phút để hoàn thành.
+| Cấu hình EC2 (`ap-southeast-1`) | Thời gian bật/tháng | Chi phí Compute | EBS `30 GB gp3` | Tổng ước tính/tháng |
+| :--- | :--- | :---: | :---: | :---: |
+| **Free Tier Smoke Test (`t3.small` / `m7i-flex.large`)** | Chạy test lab 2 giờ rồi `Terminate` | `$0.00` (Free Tier) | `$0.00` | **$0.00** |
+| **Production GPU Spot (`g4dn.xlarge` — 1x T4 16GB VRAM)** | Bật theo đợt chấm: **`20 giờ/tháng`** (`~$0.18/h` Spot) | `$3.60` | `$2.88` | **~$6.48 / tháng** |
+| **So sánh nếu bật 24/7 On-Demand (`g4dn.xlarge`)** | `730 giờ/tháng` (`$0.526/h`) | `$383.98` | `$2.88` | **$386.86 / tháng** |
 
-![complete](/images/5-Workshop/5.2-Prerequisite/complete.png)
+---
 
-+ 2 VPCs đã được tạo
+### 3. Chiến lược Tối ưu Chi phí (Cost Optimization)
 
-![vpcs](/images/5-Workshop/5.2-Prerequisite/vpcs.png)
-
-+ 3 EC2s đã được tạo
-
-![EC2](/images/5-Workshop/5.2-Prerequisite/ec2.png)
+1. **Tách hàng đợi SQS để tắt EC2 GPU khi nhàn rỗi (Giảm 98.4% tiền GPU):** Nhờ Amazon SQS lưu giữ message tối đa 14 ngày, EC2 GPU có thể ở trạng thái `Stopped` (`$0/giờ` compute) suốt thời gian không có đợt chấm, chỉ khởi chạy khi cần xử lý hàng đợi.
+2. **Chốt chặn tự tắt Fail-safe trên EC2:** Script `setup_ec2_ollama.sh` tự động chèn lệnh `shutdown -h +45` để ngăn quên tắt máy sau khi demo.
+3. **Lượng tử hóa KV-Cache (`q8_0`) & `/no_think`:** Cho phép chạy `Qwen3-14B` vừa khít trên `g4dn.xlarge` (16GB VRAM) thay vì phải thuê `g5.xlarge` đắt gấp đôi, đồng thời giảm 65% thời gian chạy mỗi job.
+4. **S3 Lifecycle & Log Retention:** Tự động hết hạn (expire) các snapshot mã nguồn tạm sau 30 ngày trên S3 và giới hạn thời gian giữ log CloudWatch ở mức 7–14 ngày.
+5. **AWS Free Tier & Lambda Concurrency Cap:** Giới hạn `MaximumConcurrency = 2` trên Lambda giúp vừa đủ trong hạn mức Free Tier vừa ngăn chặn hóa đơn tăng vọt nếu có sự cố retry.

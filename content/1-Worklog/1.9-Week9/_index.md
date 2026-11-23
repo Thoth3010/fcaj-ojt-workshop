@@ -1,57 +1,32 @@
 ---
 title: "Week 9 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-11-23
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice info %}}
+📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
 {{% /notice %}}
 
+### Week 9 Objectives (09/11/2026 – 13/11/2026)
 
-### Week 9 Objectives:
+* Design and benchmark running **Local AI (`Ollama + Qwen3`) directly on AWS EC2** inside the VPC.
+* Provision a live EC2 instance in `ap-southeast-1`, optimize `KV Cache (q8_0)`, measure E2E latency, and tear down to `$0.00`.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Daily Worklog
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | References |
+| :-: | :--- | :---: | :---: | :--- |
+| **Mon** | - Authored the **EC2 Local AI Proposal** (`ec2_local_ai_proposal.md`) comparing `Qwen3-14B` (`g4dn.xlarge`) vs. `Qwen3-30B-A3B MoE` (`g5.xlarge`). | 09/11/2026 | 09/11/2026 | `ai-worker/docs/ec2_local_ai_proposal.md` |
+| **Tue** | - Created `setup_ec2_ollama.sh` automating 4GB swap, `OLLAMA_FLASH_ATTENTION=1`, `OLLAMA_KV_CACHE_TYPE=q8_0`, and fail-safe `shutdown -h +45`. | 10/11/2026 | 10/11/2026 | `ai-worker/scripts/setup_ec2_ollama.sh` |
+| **Wed** | - Upgraded `ai_grader.py` to support `provider="local_ai"` (`/v1/chat/completions`), `/no_think` mode, and `<think>` block stripping. | 11/11/2026 | 11/11/2026 | `ai-worker/src/ai_grader.py` |
+| **Thu** | - Provisioned EC2 Ubuntu 24.04 (`t3.small` Free Tier) in `ap-southeast-1`, pulled `qwen3` (`8.97s–11.59s`), and measured E2E JSON output (`50.77s`, 100% pass). | 12/11/2026 | 12/11/2026 | `ai-worker/docs/ec2_local_ai_benchmark_report.md` |
+| **Fri** | - Verified `13/13` passing tests (`0.032s`), terminated all EC2/EBS/SG/KeyPair resources (`$0.00`), and published benchmark report. | 13/11/2026 | 13/11/2026 | `ai-worker/docs/ec2_local_ai_benchmark_report.md` |
 
+### Week 9 Key Achievements
 
-### Week 9 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Validated **Local AI (`Ollama + Qwen3`) on AWS EC2** achieving 100% JSON contract compliance and automated secret redaction.
+* Reduced context VRAM/RAM consumption by ~50% via `OLLAMA_KV_CACHE_TYPE=q8_0` and Smart Repo Slicing.
+* Maintained **`$0.00`** net AWS spend through immediate post-benchmark clean-up.

@@ -1,22 +1,25 @@
 ---
 title: "Các bài blogs đã đăng"
-date: 2024-01-01
+date: 2026-11-23
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}  
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+{{% notice info %}}
+📝 **`[TODO - Viết lại sau]`:** Theo quy định FCAJ, bạn cần đăng **tối thiểu 3 bài blogs chất lượng** lên nhóm cộng đồng [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Mình đã soạn sẵn nội dung kỹ thuật đầy đủ cho 3 bài blog gắn với đề tài của bạn dưới đây — bạn chỉ cần đăng lên nhóm rồi bổ sung **Link bài đăng thật** vào từng trang Blog 1, 2, 3 nhé!
 {{% /notice %}}
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
+### Danh sách 3 Bài Blogs Kỹ Thuật (AWS Study Group)
 
-###  [Blog 1 - SESSION POLICIES TRONG AMAZON EKS POD IDENTITY](3.1-Blog1/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+1. **[Blog 1 - Chiến lược Tối ưu Chi phí khi Triển khai Local LLM (Qwen3) trên AWS EC2 GPU kết hợp Amazon SQS](3.1-Blog1/)**
+   - Phân tích bài toán tốn `$380–$720/tháng` nếu bật GPU EC2 24/7 và giải pháp dùng hàng đợi **Amazon SQS** tách luồng để bật/tắt EC2 theo đợt + lượng tử hóa `KV Cache (q8_0)` giảm 50% VRAM.
+   - *Trạng thái link:* `[TODO - Viết lại sau: Bổ sung link bài đăng Facebook/Blog trên AWS Study Group]`
 
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+2. **[Blog 2 - Thiết kế Pipeline Bất đồng bộ Chịu lỗi với Amazon SQS, Dead-Letter Queue (DLQ) và Amazon S3 Idempotency](3.2-Blog2/)**
+   - Chia sẻ kinh nghiệm xây dựng hợp đồng thông điệp (`fcaj.ai.message.v1`), cơ chế `VisibilityTimeout` + Heartbeat, `RedrivePolicy` đẩy lỗi sang DLQ và ghi S3 an toàn với `If-None-Match: "*"`.
+   - *Trạng thái link:* `[TODO - Viết lại sau: Bổ sung link bài đăng Facebook/Blog trên AWS Study Group]`
 
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+3. **[Blog 3 - Bảo mật Ứng dụng AI trên AWS: IAM Least Privilege, SSM Parameter Store và Chống rò rỉ Secret](3.3-Blog3/)**
+   - Hướng dẫn áp dụng nguyên tắc quyền tối thiểu cho Lambda/EC2 AI Worker, bảo vệ API key bằng `SSM SecureString`, chống Prompt Injection và tự động che mật khẩu (`redact_secrets`) trong kết quả AI.
+   - *Trạng thái link:* `[TODO - Viết lại sau: Bổ sung link bài đăng Facebook/Blog trên AWS Study Group]`

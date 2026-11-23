@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+date: 2026-11-23
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice info %}}
+📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
 {{% /notice %}}
 
+### Mục tiêu tuần 2 (21/09/2026 – 25/09/2026)
 
-### Mục tiêu tuần 2:
+* Hiểu sâu về mạng ảo trên AWS: **Amazon VPC**, Subnet Public/Private, Route Table, Internet Gateway và NAT Gateway.
+* Thực hành khởi tạo, kết nối và quản trị máy ảo **Amazon EC2** an toàn (Security Group & SSM Session Manager).
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Nhật ký công việc hàng ngày
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :-: | :--- | :---: | :---: | :--- |
+| **2** | - Nghiên cứu kiến trúc **Amazon VPC**: CIDR block, Public vs Private Subnet trên nhiều Availability Zone. | 21/09/2026 | 21/09/2026 | <https://docs.aws.amazon.com/vpc/> |
+| **3** | - Thực hành tạo VPC (`10.20.0.0/16`), Internet Gateway, Route Tables và cấu hình Security Group theo nguyên tắc đóng port mặc định. | 22/09/2026 | 22/09/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| **4** | - Tìm hiểu **Amazon EC2**: Instance Families (`t3`, `m7i-flex`, `g4dn` GPU), EBS `gp3`, On-Demand vs Spot Instance. | 23/09/2026 | 23/09/2026 | <https://docs.aws.amazon.com/ec2/> |
+| **5** | - Thực hành khởi tạo EC2 Ubuntu 24.04 LTS, cấu hình UserData và kết nối không cần mở Port 22 qua **AWS Systems Manager Session Manager**. | 24/09/2026 | 24/09/2026 | <https://docs.aws.amazon.com/systems-manager/> |
+| **6** | - Thực hành dọn dẹp tài nguyên lab (Terminate EC2, xóa EBS Volume, Security Group, VPC thử nghiệm) và kiểm tra hóa đơn `$0.00`. | 25/09/2026 | 25/09/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
+### Kết quả đạt được tuần 2
 
-### Kết quả đạt được tuần 2:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Thiết kế và dựng được mạng VPC phân tách Public/Private Subnet chuẩn multi-AZ.
+* Triển khai thành công máy ảo EC2 Ubuntu và kết nối quản trị bảo mật qua SSM Session Manager mà không mở cổng SSH (22).
+* Nắm vững thói quen dọn dẹp tài nguyên ngay sau khi thực hành xong.

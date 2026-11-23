@@ -1,57 +1,32 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-11-23
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice info %}}
+📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule (remember the rule to submit the Workshop **15 days prior to needing your internship stamp**).
 {{% /notice %}}
 
+### Week 12 Objectives (30/11/2026 – 04/12/2026)
 
-### Week 12 Objectives:
+* Record and verify the **Live Demo** of the working E2E system (SQS -> AI Worker -> S3 Results -> CloudWatch Logs).
+* Finalize all evidence (3 AWS Study Group blogs, 3 Events with clear check-in photos) and complete full AWS resource clean-up.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Daily Worklog
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | References |
+| :-: | :--- | :---: | :---: | :--- |
+| **Mon** | - Rehearsed full E2E pipeline flow from `fcaj-ai-jobs-queue` dispatch to verified JSON output on S3 and `fcaj-ai-results-queue`. | 30/11/2026 | 30/11/2026 | `content/5-Workshop/5.5-Testing-Monitoring/` |
+| **Tue** | - Performed fault injection test: dispatched malformed payload to verify DLQ routing and **CloudWatch Alarm -> SNS Email** trigger. | 01/12/2026 | 01/12/2026 | <https://docs.aws.amazon.com/cloudwatch/> |
+| **Wed** | - Recorded Live Demo proof, updated AWS Study Group blog URLs, 3 event check-in photos, and personal avatar. | 02/12/2026 | 02/12/2026 | `content/` |
+| **Thu** | - Executed complete **Resource Clean-up** (Lambda, SQS/DLQs, empty & delete S3 bucket, SSM, CloudWatch Alarms) and verified `$0.00` bill. | 03/12/2026 | 03/12/2026 | `content/5-Workshop/5.6-Cleanup/` |
+| **Fri** | - Completed final bilingual quality audit and submitted Workshop link at least 15 days ahead of the stamp deadline. | 04/12/2026 | 04/12/2026 | <https://hcm-rules.awsfcaj.com/project> |
 
+### Week 12 Key Achievements
 
-### Week 12 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Completed 100% of FCAJ OJT requirements on time.
+* Verified functional, security, and observability behavior end-to-end.
+* Left the AWS account completely clean with zero lingering billable resources.

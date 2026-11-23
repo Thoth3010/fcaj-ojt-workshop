@@ -1,22 +1,25 @@
 ---
 title: "Blogs Posted"
-date: 2024-01-01
+date: 2026-11-23
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice info %}}
+📝 **`[TODO - Update later]`:** Per FCAJ rules, you need to publish **at least 3 quality blogs** to the [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Full technical drafts aligned with your AWS & AI project are ready below — simply publish them to the group and paste the **live post URLs** into Blogs 1, 2, and 3!
 {{% /notice %}}
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+### Published Technical Blogs (AWS Study Group)
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+1. **[Blog 1 - Cost Optimization Strategies for Deploying Local LLMs (Qwen3) on AWS EC2 GPU with Amazon SQS](3.1-Blog1/)**
+   - Analyzes why 24/7 GPU instances cost `$380–$720/month` and demonstrates how decoupling via **Amazon SQS** allows on-demand EC2 start/stop alongside `KV Cache (q8_0)` quantization to cut VRAM usage by 50%.
+   - *Post URL Status:* `[TODO - Update later: Add live AWS Study Group post link]`
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+2. **[Blog 2 - Designing a Fault-Tolerant Asynchronous Pipeline with Amazon SQS, DLQ, and S3 Idempotency](3.2-Blog2/)**
+   - Covers message contract design (`fcaj.ai.message.v1`), `VisibilityTimeout` heartbeat extension, `RedrivePolicy` DLQ isolation, and idempotent S3 writes using `If-None-Match: "*"`.
+   - *Post URL Status:* `[TODO - Update later: Add live AWS Study Group post link]`
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+3. **[Blog 3 - Securing AI Workloads on AWS: IAM Least Privilege, SSM Parameter Store & Secret Redaction](3.3-Blog3/)**
+   - Practical patterns for scoping AI Worker IAM roles, retrieving secrets from `SSM SecureString`, isolating untrusted code against Prompt Injection, and deterministic secret redaction.
+   - *Post URL Status:* `[TODO - Update later: Add live AWS Study Group post link]`

@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+date: 2026-11-23
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice info %}}
+📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
 {{% /notice %}}
 
+### Mục tiêu tuần 9 (09/11/2026 – 13/11/2026)
 
-### Mục tiêu tuần 9:
+* Nghiên cứu phương án chạy **Local AI (`Ollama + Qwen3`) trực tiếp trên AWS EC2** để bảo mật tuyệt đối mã nguồn trong VPC.
+* Khởi tạo máy ảo EC2 tại `ap-southeast-1`, benchmark hiệu năng Qwen3, tối ưu `KV Cache (q8_0)` và dọn sạch tài nguyên về `$0.00`.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Nhật ký công việc hàng ngày
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :-: | :--- | :---: | :---: | :--- |
+| **2** | - Soạn đề xuất kiến trúc **Local AI (Qwen3) trên AWS EC2** (`ec2_local_ai_proposal.md`), đối chiếu `Qwen3-14B` (`g4dn.xlarge`) và `Qwen3-30B-A3B MoE` (`g5.xlarge`). | 09/11/2026 | 09/11/2026 | `ai-worker/docs/ec2_local_ai_proposal.md` |
+| **3** | - Viết script tự động `setup_ec2_ollama.sh` cấu hình Swap 4GB, `OLLAMA_FLASH_ATTENTION=1`, `OLLAMA_KV_CACHE_TYPE=q8_0`, `shutdown -h +45`. | 10/11/2026 | 10/11/2026 | `ai-worker/scripts/setup_ec2_ollama.sh` |
+| **4** | - Nâng cấp `ai_grader.py` hỗ trợ `provider="local_ai"` mặc định (`/v1/chat/completions`), chèn `/no_think` và regex lọc `<think>...</think>`. | 11/11/2026 | 11/11/2026 | `ai-worker/src/ai_grader.py` |
+| **5** | - Khởi tạo EC2 Ubuntu 24.04 (`t3.small` Free Tier) tại `ap-southeast-1`, kéo `qwen3` (`8.97s–11.59s`), đo E2E JSON output (`50.77s`, 100% schema pass). | 12/11/2026 | 12/11/2026 | `ai-worker/docs/ec2_local_ai_benchmark_report.md` |
+| **6** | - Chạy `13/13` Unit Tests PASS (`0.032s`), `Terminate` toàn bộ EC2/EBS/SG/KeyPair về `$0.00` và nộp báo cáo benchmark. | 13/11/2026 | 13/11/2026 | `ai-worker/docs/ec2_local_ai_benchmark_report.md` |
 
+### Kết quả đạt được tuần 9
 
-### Kết quả đạt được tuần 9:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Chứng minh tính khả thi của **Local AI (`Ollama + Qwen3`) trên AWS EC2** với độ tuân thủ JSON Schema 100% và khả năng che secret tự động.
+* Tối ưu dung lượng VRAM/RAM thêm 50% nhờ `OLLAMA_KV_CACHE_TYPE=q8_0` kết hợp Smart Repo Slicing (`35,000` ký tự).
+* Giữ chi phí kiểm thử thực tế trên AWS ở mức **`$0.00`** nhờ dọn dẹp tài nguyên triệt để ngay sau khi thu thập số liệu.

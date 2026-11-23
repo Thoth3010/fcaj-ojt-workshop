@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-11-23
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice info %}}
+📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
 {{% /notice %}}
 
+### Mục tiêu tuần 8 (02/11/2026 – 06/11/2026)
 
-### Mục tiêu tuần 8:
+* Hoàn thiện module `ai_grader.py` tích hợp Cloud AI (`DeepSeek` / `Gemini`), hậu kiểm điểm số và bảo mật `redact_secrets`.
+* Thực nghiệm benchmark trên repository thật (`lead-hackathon-test`) và viết bộ Unit Tests tự động.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Nhật ký công việc hàng ngày
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :-: | :--- | :---: | :---: | :--- |
+| **2** | - Viết `SYSTEM_PROMPT` chuẩn hóa quy tắc trích dẫn chứng (`1–3 evidence/tiêu chí`), chống bịa số dòng và quy tắc `THIEU_DU_LIEU`. | 02/11/2026 | 02/11/2026 | `ai-worker/src/ai_grader.py` |
+| **3** | - Triển khai hàng rào bảo mật: bọc `<CANDIDATE_SOURCE_CODE>` chống Prompt Injection, `strip_line_number_prefix()` và `redact_secrets()`. | 03/11/2026 | 03/11/2026 | `ai-worker/src/ai_grader.py` |
+| **4** | - Cài đặt `compute_weighted_overall_score()` tính lại điểm trung bình trọng số bằng Python và kiểm tra `finish_reason == "length"`. | 04/11/2026 | 04/11/2026 | `ai-worker/src/schema.py` |
+| **5** | - Chạy benchmark chấm repo mẫu `lead-hackathon-test` (49 files, 7,257 dòng code) qua DeepSeek API (`19.71s`, `~$0.0175/job`). | 05/11/2026 | 05/11/2026 | `ai-worker/docs/ai_worker_review_and_decision_report.md` |
+| **6** | - Viết và chạy pass 100% bộ **Unit & Integration Tests** (`tests/test_ai_worker.py` — `10/10` -> `13/13 PASS`). | 06/11/2026 | 06/11/2026 | `ai-worker/tests/test_ai_worker.py` |
 
+### Kết quả đạt được tuần 8
 
-### Kết quả đạt được tuần 8:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thành lõi `ai_grader.py` có khả năng tự động che mật khẩu/API key (`***REDACTED***`) và chống Prompt Injection.
+* Loại bỏ 100% sai số cộng điểm trọng số nhờ hậu kiểm toán học bằng Python.
+* Bộ kiểm thử tự động `test_ai_worker.py` đạt `100% PASS`, kèm báo cáo chi phí token thực tế (`~$0.0175/job`).
