@@ -12,21 +12,20 @@ pre: " <b> 1.12. </b> "
 
 ### Mục tiêu tuần 12 (30/11/2026 – 04/12/2026)
 
-* Quay video / chuẩn bị **Live Demo** sản phẩm chạy thực tế (E2E job từ SQS -> AI Worker -> S3 Results -> CloudWatch Logs).
-* Rà soát toàn bộ minh chứng (3 Blogs, 3 Events có ảnh check-in rõ mặt, 10 buổi lên văn phòng nếu xin mộc) và dọn dẹp sạch tài nguyên AWS.
+* Kiểm thử đầu cuối (E2E) & Fault Injection (DLQ -> CloudWatch Alarm -> SNS), quay video **Live Demo** sản phẩm thực tế.
+* Hoàn tất dọn dẹp tài nguyên theo chuẩn Clean-up của khóa học FCAJ (`$0.00`), cập nhật đủ minh chứng 3 Blogs & 3 Events và nộp báo cáo OJT.
 
 ### Nhật ký công việc hàng ngày
 
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu (Khóa học FCAJ & Dự án) |
 | :-: | :--- | :---: | :---: | :--- |
-| **2** | - Diễn tập chạy thử quy trình E2E từ khâu gửi job mẫu vào `fcaj-ai-jobs-queue` đến khi nhận output chuẩn xác trên S3 & `fcaj-ai-results-queue`. | 30/11/2026 | 30/11/2026 | `content/5-Workshop/5.5-Testing-Monitoring/` |
-| **3** | - Kiểm tra kịch bản lỗi (fault injection): gửi message sai schema để xác nhận job nhảy sang DLQ và kích hoạt **CloudWatch Alarm -> SNS Email**. | 01/12/2026 | 01/12/2026 | <https://docs.aws.amazon.com/cloudwatch/> |
-| **4** | - Quay video minh chứng Live Demo, cập nhật link blog AWS Study Group, ảnh check-in 3 sự kiện và ảnh đại diện cá nhân. | 02/12/2026 | 02/12/2026 | `content/` |
-| **5** | - Chạy toàn bộ quy trình **Clean-up tài nguyên** (xóa Lambda, SQS/DLQ, empty & xóa S3 bucket, SSM, CloudWatch Alarm) và kiểm tra Billing `$0.00`. | 03/12/2026 | 03/12/2026 | `content/5-Workshop/5.6-Cleanup/` |
-| **6** | - Hoàn tất rà soát lần cuối toàn bộ báo cáo song ngữ, nộp link Workshop website đúng hạn (trước ngày cần mộc ít nhất 15 ngày). | 04/12/2026 | 04/12/2026 | <https://hcm-rules.awsfcaj.com/project> |
+| **2** | - Diễn tập chạy thử E2E từ khâu đẩy job lên `fcaj-ai-jobs-queue` -> Lambda/EC2 Worker xử lý -> xuất `output.json` trên S3 & `fcaj-ai-results-queue`. | 30/11/2026 | 30/11/2026 | - `content/5-Workshop/5.5-Testing-Monitoring/` |
+| **3** | - Kiểm thử kịch bản lỗi (Fault Injection): gửi message sai schema để xác nhận job nhảy sang `fcaj-ai-jobs-dlq` và kích hoạt **CloudWatch Alarm -> SNS Email**. | 01/12/2026 | 01/12/2026 | - <https://docs.aws.amazon.com/cloudwatch/> |
+| **4** | - Quay video minh chứng Live Demo, cập nhật link 3 bài blog AWS Study Group, ảnh check-in rõ mặt 3 sự kiện và ảnh đại diện cá nhân. | 02/12/2026 | 02/12/2026 | - `content/3-BlogsPosted/`<br>- `content/4-EventParticipated/` |
+| **5** | - Chạy toàn bộ quy trình **Clean-up tài nguyên** (Lambda, SQS/DLQ, empty & xóa S3 bucket, SSM, CloudWatch Alarm) và đối chiếu Billing `$0.00`. | 03/12/2026 | 03/12/2026 | - `content/5-Workshop/5.6-Cleanup/`<br>- [01-Lab07-06 Clean Up](https://www.youtube.com/watch?v=KeZi7eOLpOA&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i) |
+| **6** | - Rà soát tổng thể báo cáo song ngữ, gửi link website Workshop hoàn chỉnh cho chương trình FCAJ (đảm bảo trước ngày cần mộc ít nhất 15 ngày). | 04/12/2026 | 04/12/2026 | - <https://hcm-rules.awsfcaj.com/project> |
 
 ### Kết quả đạt được tuần 12
 
-* Hoàn thành 100% các hạng mục bắt buộc của báo cáo OJT FCAJ (chiếm 60% điểm OJT) đúng tiến độ.
-* Hệ thống AI Judge Pipeline vượt qua đầy đủ các bài kiểm thử chức năng, bảo mật và giám sát thực tế.
-* Tài khoản AWS được dọn dẹp sạch sẽ, không còn tài nguyên tồn đọng phát sinh chi phí.
+* Hoàn thành trọn vẹn chương trình **Workforce Bootcamp - First Cloud AI Journey (FCAJ)** và dự án **SEAL Hackathon System**.
+* Sản phẩm AI Judge Pipeline vượt qua toàn bộ kiểm thử E2E, bảo mật, giám sát và dọn dẹp tài nguyên sạch sẽ (`$0.00`).
