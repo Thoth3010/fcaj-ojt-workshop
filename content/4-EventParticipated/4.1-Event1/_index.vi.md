@@ -1,41 +1,47 @@
 ---
-title: "Event 1"
-date: 2026-11-23
+title: "Event 1 - Kick-off FCAJ Buildathon 2026"
+date: 2026-09-26
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-📝 **`[TODO - Viết lại sau]`:** Điền tên sự kiện thực tế #1 bạn đã tham gia, ngày giờ, địa điểm chính xác và thêm ảnh check-in rõ mặt vào `static/images/4-EventParticipated/event1-checkin.jpg`.
-{{% /notice %}}
-
 ### Thông tin chung
 
-- **Tên sự kiện:** `[TODO - Viết lại sau: Tên chính thức của Event 1 — VD: First Cloud AI Journey Orientation / AWS Cloud Day Vietnam]`
-- **Thời gian:** `[TODO - Viết lại sau: HH:mm, ngày dd/mm/2026]`
-- **Địa điểm:** `[TODO - Viết lại sau: Văn phòng AWS Việt Nam (Bitexco) hoặc Địa điểm tổ chức / Online Zoom]`
+- **Tên sự kiện:** Kick-off FCAJ Buildathon 2026
+- **Thời gian:** 09:00 – 11:20, ngày 26/09/2026
+- **Hình thức:** Tham dự trực tiếp (In-person)
 - **Vai trò tham gia:** Người tham dự (Attendee)
+
+---
+
+### Lịch trình sự kiện
+
+- **09:00 – 09:30 | Buildathon Kickoff:** Giới thiệu thử thách Buildathon, mục tiêu chương trình, tiêu chí đánh giá và tổng quan về **AWS Cloud**, **Generative AI** cùng cách xây dựng **AI Agents** hiện đại trên AWS.
+- **09:30 – 09:45 | Ice-breaking:** Giao lưu, làm quen các thành viên tham dự, chia sẻ nền tảng kỹ thuật và kết nối lập đội.
+- **09:45 – 10:30 | Talkshow — *Building a Career in Cloud & AI*:** Lắng nghe chia sẻ từ các chuyên gia và kỹ sư thực chiến về xu hướng Cloud, AI, dự án thực tế và cơ hội nghề nghiệp.
+- **10:30 – 10:45 | Q&A Session:** Trao đổi trực tiếp với diễn giả và mentor về AWS, Generative AI, lộ trình phát triển nghề nghiệp, chứng chỉ và định hướng Buildathon.
+- **10:45 – 11:15 | Hands-on — *AI Agent Challenge*:** Thực hành xây dựng giải pháp AI trên AWS với **Prompt Engineering**, **Retrieval-Augmented Generation (RAG)**, **Knowledge Bases** và **AI Agents**.
+- **11:15 – 11:20 | Closing Remarks:** Tổng kết điểm nhấn sự kiện, tài nguyên học tập và các hoạt động cộng đồng tiếp theo.
 
 ---
 
 ### Nội dung chính tiếp thu
 
-- `[TODO - Viết lại sau: Tóm tắt các phiên chia sẻ (session) chính bạn đã nghe trong sự kiện]`
-- Nắm tổng quan lộ trình **First Cloud AI Journey**, các tiêu chuẩn kỹ thuật khi xây dựng kiến trúc trên AWS theo **Well-Architected Framework**.
-- Cách thiết lập môi trường thực hành AWS an toàn (MFA, IAM User/Role, AWS Budgets cảnh báo chi phí) và văn hóa chia sẻ cộng đồng tại AWS Study Group.
+- **Tổng quan Buildathon & AI Agents trên AWS:** Nắm rõ bài toán, mục tiêu và tiêu chí chấm điểm của Buildathon; hiểu cách **AWS Cloud**, **Generative AI** và **Agentic AI** được ứng dụng để xây dựng AI Agent giải quyết vấn đề thực tế thay vì chỉ chạy demo bằng prompt đơn lẻ.
+- **Định hướng nghề nghiệp Cloud & AI (Talkshow & Q&A):** Tiếp thu góc nhìn thực tế từ các chuyên gia về cách doanh nghiệp triển khai AWS và Agentic AI, tầm quan trọng của kiến thức nền tảng Cloud, giá trị của chứng chỉ AWS gắn với dự án thực hành (hands-on projects) và lộ trình chuẩn bị cho sự nghiệp Cloud & AI.
+- **Thực hành Hands-on (*AI Agent Challenge*):** Trực tiếp thực hành dựng giải pháp AI mini trên AWS dưới sự hỗ trợ của mentor, hiểu rõ cách phối hợp **Prompt Engineering**, **RAG**, **Knowledge Bases** và **AI Agents** để nâng cao độ chính xác và tính thực tiễn cho mô hình.
 
 ---
 
 ### Hình ảnh check-in rõ mặt chứng minh tham gia
 
-> 📸 **`[TODO - Viết lại sau]`:** Đặt file ảnh check-in rõ mặt tại `static/images/4-EventParticipated/event1-checkin.jpg` và bỏ ghi chú để hiển thị:
->
-> `![Check-in Event 1](/images/4-EventParticipated/event1-checkin.jpg)`
+![Check-in Event 1 - Kick-off FCAJ Buildathon 2026](/images/4-EventParticipated/event1-checkin.jpg)
 
 ---
 
 ### Bài học rút ra & Đóng góp cá nhân
 
-- Hiểu rõ kỳ vọng của chương trình OJT đối với thực tập sinh: không chỉ dừng ở việc dùng console mà phải tự động hóa, kiểm soát chi phí và tài liệu hóa chuẩn mực.
-- Chủ động kết nối với các anh/chị mentor và các thành viên nhóm dự án SEAL Hackathon để chuẩn bị kế hoạch thực tập 12 tuần.
+- **Tư duy kiến trúc gắn với thực tiễn:** Một hệ thống AI hiệu quả trên Cloud không chỉ phụ thuộc vào mô hình mà cần thiết kế bài bản từ dữ liệu (**RAG / Knowledge Bases**), prompt cho đến cách tích hợp các dịch vụ AWS.
+- **Kỹ năng cộng tác & phản biện kỹ thuật:** Chủ động giao lưu qua phần **Ice-breaking**, kết nối với đồng đội và đặt câu hỏi trực tiếp cho mentor trong phiên **Q&A** và **Hands-on** để tháo gỡ nhanh các vướng mắc về kiến trúc.
+- **Ứng dụng vào đồ án OJT:** Vận dụng tư duy thiết kế pipeline AI có kiểm soát và kinh nghiệm thực hành từ buổi kick-off vào quá trình triển khai workshop **AI Code Judge Pipeline** trong kỳ thực tập.
