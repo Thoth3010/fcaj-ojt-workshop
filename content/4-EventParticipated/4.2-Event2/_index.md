@@ -1,41 +1,41 @@
 ---
-title: "Event 2"
-date: 2026-11-23
+title: "Event 2 - AWS Cloud & AI Day Hanoi 2026"
+date: 2026-09-29
 weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-📝 **`[TODO - Update later]`:** Fill in the exact official name, date/time, and venue of your real Event 2, and add your clear check-in photo at `static/images/4-EventParticipated/event2-checkin.jpg`.
-{{% /notice %}}
-
 ### Event Details
 
-- **Event Name:** `[TODO - Update later: Official name of Event 2 — e.g., Serverless & Event-Driven Architecture Workshop]`
-- **Date & Time:** `[TODO - Update later: HH:mm, dd/mm/2026]`
-- **Location / Venue:** `[TODO - Update later: AWS Vietnam Office / Venue / Online]`
+- **Event Name:** AWS Cloud & AI Day Hanoi 2026
+- **Date:** September 29, 2026
+- **Location:** Hanoi (In-person)
 - **Role:** Attendee
 
 ---
 
-### Main Content Covered
+### Main Content Covered (Agenda)
 
-- `[TODO - Update later: Add specific highlights and speaker topics from Event 2]`
-- Event-Driven Architecture patterns using **Amazon SQS**, **Dead-Letter Queues (DLQs)**, and **AWS Lambda** to decouple heavy workloads.
-- Practical **Cost Optimization** techniques: serverless pay-per-use sizing, Spot instances, and proactive CloudWatch + AWS Budgets alarms.
+The technical session on building an **Enterprise Knowledge Hub** on AWS covered six core topics:
+
+1. **The Enterprise Knowledge Challenge:** Identifying the challenges of fragmented enterprise knowledge—scattered documents across silos, inconsistent search accuracy, and knowledge decay as teams scale.
+2. **Building an Enterprise Knowledge Hub:** Architecting a centralized knowledge hub on **AWS Cloud**, standardizing ingestion, indexing, and synchronization pipelines for AI-powered consumption.
+3. **Retrieval and Intelligence:** Combining **Retrieval (RAG)** techniques with foundation models to deliver context-aware answers, reduce hallucinations, and accelerate internal knowledge discovery.
+4. **Security and Governance:** Applying enterprise security and data governance controls—enforcing role-based access control, protecting sensitive information, and maintaining compliance boundaries.
+5. **Delivery and Proven Results:** Measuring real-world impact after rollout, including search efficiency, response accuracy, and operational productivity gains.
+6. **Roadmap to Enterprise Adoption:** Structuring a practical roadmap from initial proof-of-concept (PoC) to full-scale enterprise adoption across teams.
 
 ---
 
-### Check-in Photo (Clear Face Proof)
+### Event Photo
 
-> 📸 **`[TODO - Update later]`:** Save your check-in photo as `static/images/4-EventParticipated/event2-checkin.jpg` and render it as:
->
-> `![Check-in Event 2](/images/4-EventParticipated/event2-checkin.jpg)`
+![AWS Cloud & AI Day Hanoi 2026](/images/4-EventParticipated/event2-checkin.jpg)
 
 ---
 
 ### Key Takeaways & Personal Contribution
 
-- Directly applied the **SQS + DLQ + Idempotency** pattern from this session to the **AI Judge Pipeline** in the SEAL Hackathon project.
-- Participated in Q&A regarding handling `VisibilityTimeout` safely for long-running AI inference tasks.
+- **Data Architecture Drives AI Quality:** For enterprise AI applications, organizing a reliable **Enterprise Knowledge Hub** and **Retrieval** pipeline is just as critical as model selection.
+- **Security & Governance by Design:** Integrating internal documents into RAG workflows requires strict access control so users only retrieve information they are authorized to view.
+- **Phased Production Roadmap:** Moving from PoC to enterprise adoption with measurable metrics provides a practical blueprint applicable to designing scalable AI pipelines in my OJT internship.
