@@ -1,51 +1,81 @@
 ---
-title: "Blog 2 - Fault-Tolerant Pipeline with SQS, DLQ & S3 Idempotency"
-date: 2026-11-23
+title: "Blog 2 - Infrastructure as Code and AWS IaC MCP Server"
+date: 2026-11-20
 weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
 {{% notice info %}}
-🔗 **AWS Study Group Post Link:** [Facebook post](https://www.facebook.com/share/p/1BYTn5tpyW/)
+🔗 **AWS Study Group post:** [View the Facebook post](https://www.facebook.com/share/p/1BYTn5tpyW/)
 {{% /notice %}}
 
-# Designing a Fault-Tolerant Asynchronous Pipeline with Amazon SQS, Dead-Letter Queues (DLQ), and S3 Idempotency
+# Vibe Coding AWS Infrastructure: Why Infrastructure as Code and AWS IaC MCP Server Matter
 
-AI inference jobs typically take 15 to 60 seconds—far too long for synchronous HTTP request-response cycles. In the **SEAL Hackathon Platform**, we built a decoupled asynchronous pipeline on AWS. Here are the key architectural patterns that keep it resilient.
+AI can produce application code quickly. Letting an agent provision AWS infrastructure through disconnected commands, however, often creates systems that work in a demo but are difficult to control in production. Vibe Coders therefore need a solid Infrastructure as Code foundation.
 
----
+![AWS IaC MCP Server workflow](https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2026/08/04/figure1-iac-mcp-workflow.png)
 
-## 1. Dual-Queue + Dual-DLQ Topology
+## 1. Infrastructure as Code on AWS
 
-Communication between the Backend API and the AI Worker is split into two independent channels:
-- **`fcaj-ai-jobs-queue` (+ `fcaj-ai-jobs-dlq`):** Carries `AI_JOB_REQUESTED` envelopes from Backend to Worker.
-- **`fcaj-ai-results-queue` (+ `fcaj-ai-results-dlq`):** Carries `AI_JOB_COMPLETED` / `FAILED` notifications back to the Backend.
+Infrastructure as Code defines AWS resources in versioned files so deployments are consistent, repeatable, and easier to govern.
 
-Setting a **`RedrivePolicy` with `maxReceiveCount = 3`** ensures poison messages are isolated into the DLQ after three failed attempts—preventing infinite retry loops that waste LLM tokens or Lambda invocations.
+AWS provides two widely used native options:
 
----
+- **AWS CloudFormation** declares infrastructure in JSON or YAML templates.
+- **AWS Cloud Development Kit** lets developers define infrastructure in TypeScript, Python, and other familiar languages before synthesizing CloudFormation.
 
-## 2. Handling At-Least-Once Delivery & Visibility Timeouts
+Asking an agent to produce CloudFormation or AWS CDK makes changes reviewable in Git and provides a clearer lifecycle than a sequence of AWS CLI commands.
 
-**Amazon SQS Standard Queues** guarantee *at-least-once* delivery, and if processing outlasts `VisibilityTimeout`, another consumer will pick up the same message. To achieve safe idempotent processing:
+## 2. Three common bottlenecks
 
-1. **Claim-Check Pattern with Amazon S3:** Keep SQS messages lightweight (`fcaj.ai.message.v1`, `< 32 KB`) containing S3 pointers plus **SHA-256** checksums for `source.json` and `rubric.json`.
-2. **Background SQS Heartbeat:** While local inference runs on EC2, a background thread periodically invokes `sqs.change_message_visibility()` so SQS never re-dispatches an active job prematurely.
-3. **Conditional Idempotent S3 Writes (`If-None-Match: "*"`):**
-   ```python
-   s3_client.put_object(
-       Bucket=bucket,
-       Key=f"{prefix}/results/{job_id}/output.json",
-       Body=payload_bytes,
-       ContentType="application/json",
-       IfNoneMatch="*",
-   )
-   ```
-   Using S3 conditional `IfNoneMatch="*"` guarantees that even if a retry occurs, an existing output artifact is never silently overwritten.
+### Stale or incorrect resource properties
 
----
+Without live documentation, an agent may use invalid properties or miss current best practices.
 
-## 3. Proactive Failure Detection with CloudWatch & SNS
+### Excessive tool switching
 
-By attaching a **CloudWatch Alarm** to `ApproximateNumberOfMessagesVisible > 0` on both DLQs and wiring it to **Amazon SNS**, operators receive immediate email alerts whenever a job lands in a DLQ so it can be inspected and redriven cleanly.
+Engineers move repeatedly among documentation, linters, deployment consoles, and logs during each authoring and validation cycle.
+
+### Slow deployment troubleshooting
+
+A stack may end in AccessDenied or ROLLBACK_COMPLETE without clearly identifying the missing permission, forcing engineers to correlate CloudFormation events with AWS CloudTrail.
+
+## 3. AWS Infrastructure as Code MCP Server
+
+AWS IaC MCP Server runs locally over stdio and supports MCP-compatible assistants through a four-stage workflow:
+
+### Author
+
+Documentation, sample, and construct search tools help agents use current CloudFormation/CDK schemas and recommended patterns.
+
+### Validate
+
+- **validate_cloudformation_template** wraps cfn-lint for structure and schema checks.
+- **check_cloudformation_template_compliance** wraps cfn-guard for controls such as S3 encryption, Block Public Access, and log retention.
+
+These checks run locally without AWS permissions.
+
+### Deploy
+
+Validated templates are deployed with AWS CLI. Pre-deployment validation can be configured before creating a change set.
+
+### Troubleshoot
+
+**troubleshoot_cloudformation_deployment** correlates stack events with CloudTrail to identify missing permissions such as iam:PassRole.
+
+## 4. Operational guidance
+
+- Validation requires no AWS permissions; troubleshooting needs only read access to CloudFormation and CloudTrail.
+- Troubleshooting data sent to an AI model provider must follow organizational data-handling rules.
+- CloudTrail events may take 5–15 minutes to appear after a failed deployment.
+
+## Takeaway
+
+Production-oriented Vibe Coding on AWS should use CloudFormation or AWS CDK, with AWS IaC MCP Server closing the Author → Validate → Deploy → Troubleshoot loop.
+
+## References
+
+- [Accelerate CloudFormation development with the IaC MCP Server — AWS DevOps Blog](https://aws.amazon.com/blogs/devops/accelerate-cloudformation-development-with-the-iac-mcp-server/)
+- [Introducing the AWS Infrastructure as Code MCP Server — AWS DevOps Blog](https://aws.amazon.com/blogs/devops/introducing-the-aws-infrastructure-as-code-mcp-server-ai-powered-cdk-and-cloudformation-assistance/)
+- [Image source — AWS DevOps Blog](https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2026/08/04/figure1-iac-mcp-workflow.png)

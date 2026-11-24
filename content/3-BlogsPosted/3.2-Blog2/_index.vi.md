@@ -1,51 +1,81 @@
 ---
-title: "Blog 2 - Pipeline Bất đồng bộ với SQS, DLQ & S3 Idempotency"
-date: 2026-11-23
+title: "Blog 2 - Infrastructure as Code và AWS IaC MCP Server"
+date: 2026-11-20
 weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
 {{% notice info %}}
-🔗 **Link bài đăng AWS Study Group:** [Facebook post](https://www.facebook.com/share/p/1BYTn5tpyW/)
+🔗 **Bài đăng trên AWS Study Group:** [Xem bài viết Facebook](https://www.facebook.com/share/p/1BYTn5tpyW/)
 {{% /notice %}}
 
-# Thiết kế Pipeline Xử lý Bất đồng bộ Chịu lỗi (Fault-Tolerant) với Amazon SQS, Dead-Letter Queue (DLQ) và Amazon S3 Idempotency
+# Vibe Coding hạ tầng AWS: Tại sao cần Infrastructure as Code và AWS IaC MCP Server?
 
-Khi tích hợp AI vào các ứng dụng web thực tế, thời gian xử lý một request thường kéo dài từ `15` đến `60` giây. Nếu giữ kết nối HTTP đồng bộ, người dùng dễ gặp lỗi timeout và hệ thống không thể chịu được tải đột biến. Dưới đây là những bài học thực tế khi thiết kế đường ống bất đồng bộ trên AWS cho dự án **SEAL Hackathon**.
+AI giúp viết code ứng dụng rất nhanh. Tuy nhiên, nếu để AI dựng hạ tầng AWS bằng những lệnh rời rạc, hệ thống có thể chạy được ở bản demo nhưng khó kiểm soát khi đưa lên production. Vì vậy, Vibe Coder cần hiểu Infrastructure as Code và các công cụ AWS hỗ trợ quy trình này.
 
----
+![Quy trình AWS IaC MCP Server](https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2026/08/04/figure1-iac-mcp-workflow.png)
 
-## 1. Kiến trúc 2 Hàng đợi + 2 Dead-Letter Queues (DLQ)
+## 1. Infrastructure as Code trên AWS
 
-Hệ thống tách biệt hai chiều giao tiếp giữa Backend và AI Worker:
-- **`fcaj-ai-jobs-queue` (+ `fcaj-ai-jobs-dlq`):** Backend gửi yêu cầu `AI_JOB_REQUESTED`, worker nhận và xử lý.
-- **`fcaj-ai-results-queue` (+ `fcaj-ai-results-dlq`):** Worker báo kết quả `AI_JOB_COMPLETED`, Backend cập nhật DB.
+Infrastructure as Code cho phép định nghĩa tài nguyên AWS trong file code để triển khai đồng nhất, lặp lại được và dễ kiểm soát tuân thủ.
 
-Việc cấu hình **`RedrivePolicy` với `maxReceiveCount = 3`** đảm bảo một thông điệp bị lỗi định dạng (poison message) hoặc sập worker sẽ chỉ thử lại tối đa 3 lần trước khi tự động chuyển sang **DLQ**, tránh vòng lặp vô tận làm tiêu tốn token LLM và tài nguyên Lambda/EC2.
+Hai công cụ IaC gốc phổ biến trên AWS là:
 
----
+- **AWS CloudFormation:** khai báo hạ tầng bằng template JSON hoặc YAML.
+- **AWS Cloud Development Kit:** viết hạ tầng bằng TypeScript, Python và các ngôn ngữ quen thuộc, sau đó tổng hợp thành CloudFormation.
 
-## 2. Xử lý bài toán Duplicate Message & Visibility Timeout
+Với Vibe Coding, yêu cầu AI tạo CloudFormation hoặc AWS CDK giúp thay đổi được review trên Git và quản lý vòng đời bài bản hơn một chuỗi AWS CLI command.
 
-Trong **Amazon SQS Standard Queue**, cơ chế đảm bảo là *At-Least-Once Delivery* (một message có thể được giao hơn 1 lần) và nếu quá thời gian `VisibilityTimeout` mà worker chưa xóa message, SQS sẽ phát lại cho worker khác. Để đảm bảo **không ghi đè hoặc chấm trùng kết quả**, nhóm áp dụng 3 nguyên tắc:
+## 2. Ba điểm nghẽn khi AI tự viết CloudFormation hoặc CDK
 
-1. **Tách dữ liệu lớn sang Amazon S3 (Claim-Check Pattern):** SQS chỉ chứa metadata nhẹ (`fcaj.ai.message.v1`, `< 32 KB`) kèm đường dẫn và mã băm **SHA-256** của `source.json` và `rubric.json` trên S3.
-2. **Gia hạn Visibility Timeout tự động (SQS Heartbeat):** Khi worker chạy suy luận Local AI trên EC2 (có thể mất 30–50 giây), luồng nền định kỳ gọi `sqs.change_message_visibility()` để gia hạn thời gian giữ job trước khi hết hạn.
-3. **Ghi S3 Idempotent bằng `If-None-Match: "*"`:**
-   ```python
-   s3_client.put_object(
-       Bucket=bucket,
-       Key=f"{prefix}/results/{job_id}/output.json",
-       Body=payload_bytes,
-       ContentType="application/json",
-       IfNoneMatch="*",
-   )
-   ```
-   Nhờ header `IfNoneMatch="*"` của Amazon S3, nếu hai worker vô tình chạy trùng cùng một `jobId`, chỉ ghi thành công duy nhất một lần và tuyệt đối không ghi đè sai lệch kết quả.
+### Dữ liệu cũ hoặc sai thuộc tính
 
----
+Nếu không tra cứu tài liệu live, AI có thể dùng sai property hoặc bỏ qua best practices mới.
 
-## 3. Giám sát độ trễ & Cảnh báo DLQ với CloudWatch
+### Chuyển đổi qua nhiều công cụ
 
-Khi kết hợp thêm **CloudWatch Alarm** theo dõi metric `ApproximateNumberOfMessagesVisible > 0` trên hai hàng đợi DLQ nối tới **Amazon SNS**, đội ngũ vận hành lập tức nhận được email cảnh báo ngay khi có bất kỳ job AI nào thất bại sau 3 lần retry để kiểm tra và redrive an toàn.
+Kỹ sư phải liên tục chuyển giữa documentation, linter, console triển khai và log chỉ để hoàn thành một vòng viết, kiểm tra và deploy.
+
+### Khó tìm nguyên nhân deploy thất bại
+
+CloudFormation stack có thể báo AccessDenied hoặc ROLLBACK_COMPLETE nhưng stack events chưa chỉ rõ permission còn thiếu. Người vận hành phải đối chiếu thêm AWS CloudTrail.
+
+## 3. AWS Infrastructure as Code MCP Server
+
+AWS IaC MCP Server chạy cục bộ qua stdio và hỗ trợ các AI assistant tương thích MCP. Công cụ này khép kín quy trình bốn bước:
+
+### Author
+
+Các tool tìm kiếm CloudFormation/CDK documentation, sample và construct giúp agent lấy đúng schema và best practices trước khi sinh code.
+
+### Validate
+
+- **validate_cloudformation_template** dùng cfn-lint để kiểm tra cấu trúc và schema.
+- **check_cloudformation_template_compliance** dùng cfn-guard để kiểm tra yêu cầu như mã hóa S3, Block Public Access hoặc log retention.
+
+Hai bước này chạy local và chưa cần quyền AWS.
+
+### Deploy
+
+Template đã kiểm tra được triển khai qua AWS CLI. Pre-deployment validation có thể được cấu hình trước khi tạo change set.
+
+### Troubleshoot
+
+**troubleshoot_cloudformation_deployment** kết hợp stack events với AWS CloudTrail để xác định permission còn thiếu, chẳng hạn iam:PassRole khi gắn role cho Lambda.
+
+## 4. Lưu ý an toàn
+
+- Các bước validate không cần quyền AWS; troubleshoot chỉ cần quyền đọc CloudFormation và CloudTrail.
+- Dữ liệu trả về cho AI model provider phải tuân thủ quy định bảo mật của tổ chức.
+- CloudTrail có thể cần 5–15 phút để hiển thị event sau một deployment lỗi.
+
+## Kết luận
+
+Để Vibe Code hạ tầng AWS nhanh nhưng vẫn sẵn sàng cho production, nên yêu cầu AI tạo CloudFormation hoặc AWS CDK và dùng AWS IaC MCP Server cho vòng lặp Author → Validate → Deploy → Troubleshoot.
+
+## Nguồn tham khảo
+
+- [Accelerate CloudFormation development with the IaC MCP Server — AWS DevOps Blog](https://aws.amazon.com/blogs/devops/accelerate-cloudformation-development-with-the-iac-mcp-server/)
+- [Introducing the AWS Infrastructure as Code MCP Server — AWS DevOps Blog](https://aws.amazon.com/blogs/devops/introducing-the-aws-infrastructure-as-code-mcp-server-ai-powered-cdk-and-cloudformation-assistance/)
+- [Nguồn ảnh — AWS DevOps Blog](https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2026/08/04/figure1-iac-mcp-workflow.png)

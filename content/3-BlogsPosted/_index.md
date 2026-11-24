@@ -1,22 +1,24 @@
 ---
-title: "Blogs Posted"
-date: 2026-11-23
+title: "Published Blogs"
+date: 2026-11-24
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
+### Three-part AWS series for the Vibe Coding era
 
-### Published Technical Blogs (AWS Study Group)
+1. **[Blog 1 - AWS CLI in the Vibe Coding Era: From Manual Commands to AWS MCP Server](3.1-Blog1/)**
+   - Explains the continuing role of AWS CLI, common risks when agents generate commands, and how AWS MCP Server provides current documentation and controlled API access.
+   - *Published:* 19/11/2026
+   - *Post:* [AWS Study Group VN](https://www.facebook.com/share/p/1FJJYqU4Rp/)
 
-1. **[Blog 1 - Cost Optimization Strategies for Deploying Local LLMs (Qwen3) on AWS EC2 GPU with Amazon SQS](3.1-Blog1/)**
-   - Analyzes why 24/7 GPU instances cost `$380–$720/month` and demonstrates how decoupling via **Amazon SQS** allows on-demand EC2 start/stop alongside `KV Cache (q8_0)` quantization to cut VRAM usage by 50%.
-   - *Post URL Status:* [Facebook post](https://www.facebook.com/share/p/1FJJYqU4Rp/)
+2. **[Blog 2 - Vibe Coding AWS Infrastructure: Why Infrastructure as Code and AWS IaC MCP Server Matter](3.2-Blog2/)**
+   - Covers CloudFormation, AWS CDK, and the Author → Validate → Deploy → Troubleshoot workflow supported by AWS IaC MCP Server.
+   - *Published:* 20/11/2026
+   - *Post:* [AWS Study Group VN](https://www.facebook.com/share/p/1BYTn5tpyW/)
 
-2. **[Blog 2 - Designing a Fault-Tolerant Asynchronous Pipeline with Amazon SQS, DLQ, and S3 Idempotency](3.2-Blog2/)**
-   - Covers message contract design (`fcaj.ai.message.v1`), `VisibilityTimeout` heartbeat extension, `RedrivePolicy` DLQ isolation, and idempotent S3 writes using `If-None-Match: "*"`.
-   - *Post URL Status:* [Facebook post](https://www.facebook.com/share/p/1BYTn5tpyW/)
-
-3. **[Blog 3 - Securing AI Workloads on AWS: IAM Least Privilege, SSM Parameter Store & Secret Redaction](3.3-Blog3/)**
-   - Practical patterns for scoping AI Worker IAM roles, retrieving secrets from `SSM SecureString`, isolating untrusted code against Prompt Injection, and deterministic secret redaction.
-   - *Post URL Status:* [Facebook post](https://www.facebook.com/share/p/19vbHFir6p/)
+3. **[Blog 3 - What Is an AWS Agent Harness? Taking AI Agents from Demo to Production](3.3-Blog3/)**
+   - Introduces Amazon Bedrock AgentCore Harness, managed memory and tools, isolated runtime, observability, lifecycle hooks, and cost controls.
+   - *Published:* 23/11/2026
+   - *Post:* [AWS Study Group VN](https://www.facebook.com/share/p/19vbHFir6p/)
