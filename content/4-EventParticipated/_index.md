@@ -6,20 +6,18 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Per FCAJ internship stamp requirements, you must attend **at least 3 technical/community events** and attach a **clear check-in photo showing your face** for each event. All 3 event pages below follow the mandatory 7-field structure — update the real event names, dates, venues, and place your check-in photos inside `static/images/4-EventParticipated/`.
-{{% /notice %}}
+Below is the summary of **3 AWS technical & community events** attended during the OJT internship, complete with schedules, key takeaways, and check-in photo proofs:
 
-### List of 3 Events Participated (Minimum 3 Events Required)
+### List of 3 Events Participated
 
-1. **[Event 1 - AWS Cloud & AI Kick-off / Community Workshop](4.1-Event1/)**
-   - *Date:* `[TODO - Update later: dd/mm/yyyy]` | *Role:* Attendee
-   - *Check-in Photo:* `[TODO - Update later: Attach clear check-in photo]`
+1. **[Event 1 - Kick-off FCAJ Buildathon 2026](4.1-Event1/)**
+   - *Date & Time:* 09:00 – 11:20, September 26, 2026 | *Role:* Attendee
+   - *Check-in Photo:* Attached clear face check-in photo (`event1-checkin.jpg`)
 
-2. **[Event 2 - Serverless, Event-Driven Architecture & Cost Optimization on AWS](4.2-Event2/)**
-   - *Date:* `[TODO - Update later: dd/mm/yyyy]` | *Role:* Attendee
-   - *Check-in Photo:* `[TODO - Update later: Attach clear check-in photo]`
+2. **[Event 2 - AWS Cloud & AI Day Hanoi 2026](4.2-Event2/)**
+   - *Date:* September 29, 2026 | *Role:* Attendee
+   - *Check-in Photo:* Attached clear face + badge check-in photo (`event2-checkin.jpg`)
 
-3. **[Event 3 - GenAI & Modern Cloud Applications Workshop / Study Group Meetup](4.3-Event3/)**
-   - *Date:* `[TODO - Update later: dd/mm/yyyy]` | *Role:* Attendee / Participant
-   - *Check-in Photo:* `[TODO - Update later: Attach clear check-in photo]`
+3. **[Event 3 - AWS First Cloud AI Journey Community Day 2026](4.3-Event3/)**
+   - *Date & Time:* 09:00 – 12:00, October 31, 2026 | *Role:* Attendee
+   - *Check-in Photo:* Attached clear face check-in photo (`event3-checkin.jpg`)

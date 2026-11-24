@@ -1,41 +1,51 @@
 ---
-title: "Event 3"
-date: 2026-11-23
+title: "Event 3 - AWS First Cloud AI Journey Community Day 2026"
+date: 2026-10-31
 weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
-{{% notice warning %}}
-📝 **`[TODO - Update later]`:** Fill in the exact official name, date/time, and venue of your real Event 3, and add your clear check-in photo at `static/images/4-EventParticipated/event3-checkin.jpg`.
-{{% /notice %}}
-
 ### Event Details
 
-- **Event Name:** `[TODO - Update later: Official name of Event 3 — e.g., GenAI on AWS / AWS Security & Observability Workshop]`
-- **Date & Time:** `[TODO - Update later: HH:mm, dd/mm/2026]`
-- **Location / Venue:** `[TODO - Update later: AWS Vietnam Office / Venue / Online]`
+- **Event Name:** AWS First Cloud AI Journey Community Day 2026
+- **Date & Time:** 09:00 – 12:00, October 31, 2026
+- **Format:** In-person
 - **Role:** Attendee
+
+---
+
+### Event Schedule
+
+- **09:00 – 09:25 AM | Lessons Learned from Building Software Factories:** Real-world lessons from building software factories at scale, common pitfalls to avoid, and what works in practice.
+- **09:30 – 09:55 AM | Education:** An educator's perspective on preparing next-generation cloud talent and bridging the gap between universities and businesses.
+- **10:00 – 10:25 AM | AWS Lambda Web Functions: Rethinking Serverless Web Architecture:** How native HTTP support and **128-request multi-concurrency** redefine Serverless compute, eliminating adapter overhead, leveraging **Active CPU Billing**, and comparing Serverless against Docker on EC2/ECS with live performance benchmarks.
+- **10:30 – 11:00 AM | Amazon SQS: Building Asynchronous Systems:** Why modern systems need asynchronous processing, using **Amazon SQS** to decouple and scale architectures, and practical design patterns.
+- **11:00 – 11:25 AM | My 3-Month AWS Internship Journey:** Sharing a 3-month AWS internship experience, applying AWS services to real projects, and practical advice for incoming interns.
+- **11:30 – 12:00 PM | Start & Maintain Consistency with Open Source Contributing:** Making a first open-source contribution from scratch, maintaining a consistent habit, and its impact on career growth.
 
 ---
 
 ### Main Content Covered
 
-- `[TODO - Update later: Summarize the main sessions and takeaways from Event 3]`
-- Securing AI workloads on AWS: **IAM Least Privilege**, secret retrieval via **Systems Manager Parameter Store**, and application-level Prompt Injection defenses.
-- End-to-end observability using **Amazon CloudWatch Logs, Metrics, Alarms** and **Amazon SNS** notifications.
+- **Modern Serverless & Asynchronous Architecture:**
+  - Learned how **AWS Lambda Web Functions** remove adapter overhead with native HTTP support and **128-request multi-concurrency**, while **Active CPU Billing** optimizes cost compared to Docker on EC2/ECS.
+  - Reinforced asynchronous system design principles using **Amazon SQS** to decouple components, absorb traffic spikes, and scale reliably.
+- **Engineering Scale & Internship Insights:**
+  - Gained practical lessons from building **Software Factories** at scale and avoiding common operational pitfalls.
+  - Learned from both educators and past AWS interns on bridging academic foundations with real-world AWS project delivery during a 3-month internship.
+- **Open Source Consistency:** Understood how to start contributing to open-source projects from scratch and build a sustainable habit for continuous technical growth.
 
 ---
 
 ### Check-in Photo (Clear Face Proof)
 
-> 📸 **`[TODO - Update later]`:** Save your check-in photo as `static/images/4-EventParticipated/event3-checkin.jpg` and render it as:
->
-> `![Check-in Event 3](/images/4-EventParticipated/event3-checkin.jpg)`
+![Check-in Event 3 - AWS First Cloud AI Journey Community Day 2026](/images/4-EventParticipated/event3-checkin.jpg)
 
 ---
 
 ### Key Takeaways & Personal Contribution
 
-- Reinforced our personal workshop with prefix-scoped S3 IAM policies (`inputs/*`, `results/*`), automated `redact_secrets()`, and CloudWatch DLQ alarms.
-- Shared practical `KV Cache (q8_0)` tuning findings for running Qwen3 on EC2 with peer FCAJ interns.
+- **Direct Application of Amazon SQS to OJT Project:** Insights from the *Amazon SQS: Building Asynchronous Systems* session directly reinforce the **SQS + DLQ** decoupling pattern implemented in the **AI Code Judge Pipeline** workshop.
+- **Pragmatic Compute Trade-offs:** Live benchmarks comparing **AWS Lambda Web Functions** (Active CPU Billing) with Docker on EC2/ECS highlighted how to choose compute options based on actual workload characteristics.
+- **Consistency & Engineering Discipline:** Applying the steady-habit mindset from *Open Source Contributing* to maintain consistent worklogs, technical blog sharing, and steady progress across the 12-week OJT program.

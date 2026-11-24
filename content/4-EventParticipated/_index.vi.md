@@ -6,20 +6,18 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Theo quy định nhận mộc thực tập FCAJ, bạn cần tham gia **tối thiểu 3 sự kiện chuyên môn / cộng đồng** và đính kèm **hình ảnh check-in rõ mặt hợp lệ** cho từng sự kiện. Dưới đây là 3 trang sự kiện đã tạo sẵn đầy đủ 7 trường thông tin bắt buộc — bạn hãy cập nhật lại tên sự kiện thực tế, thời gian, địa điểm và chèn ảnh check-in vào `static/images/4-EventParticipated/` nhé!
-{{% /notice %}}
+Dưới đây là tổng hợp **3 sự kiện chuyên môn & cộng đồng AWS** đã tham dự trong kỳ thực tập OJT, kèm đầy đủ thông tin, nội dung tiếp thu, bài học rút ra và hình ảnh minh chứng:
 
-### Danh sách 3 Sự kiện đã tham gia (Minimum 3 Events Required)
+### Danh sách 3 Sự kiện đã tham gia
 
-1. **[Event 1 - AWS Cloud & AI Kick-off / Workshop Cộng đồng](4.1-Event1/)**
-   - *Thời gian:* `[TODO - Viết lại sau: dd/mm/yyyy]` | *Vai trò:* Người tham dự (Attendee)
-   - *Trạng thái minh chứng:* `[TODO - Viết lại sau: Đính kèm ảnh check-in rõ mặt]`
+1. **[Event 1 - Kick-off FCAJ Buildathon 2026](4.1-Event1/)**
+   - *Thời gian:* 09:00 – 11:20, ngày 26/09/2026 | *Vai trò:* Người tham dự (Attendee)
+   - *Trạng thái minh chứng:* Đã đính kèm ảnh check-in rõ mặt (`event1-checkin.jpg`)
 
-2. **[Event 2 - Kiến trúc Serverless, Event-Driven & Tối ưu Chi phí trên AWS](4.2-Event2/)**
-   - *Thời gian:* `[TODO - Viết lại sau: dd/mm/yyyy]` | *Vai trò:* Người tham dự (Attendee)
-   - *Trạng thái minh chứng:* `[TODO - Viết lại sau: Đính kèm ảnh check-in rõ mặt]`
+2. **[Event 2 - AWS Cloud & AI Day Hanoi 2026](4.2-Event2/)**
+   - *Thời gian:* Ngày 29/09/2026 | *Vai trò:* Người tham dự (Attendee)
+   - *Trạng thái minh chứng:* Đã đính kèm ảnh check-in rõ mặt kèm thẻ tên (`event2-checkin.jpg`)
 
-3. **[Event 3 - GenAI & Modern Cloud Applications Workshop / Study Group Meetup](4.3-Event3/)**
-   - *Thời gian:* `[TODO - Viết lại sau: dd/mm/yyyy]` | *Vai trò:* Người tham dự / Thành viên thảo luận
-   - *Trạng thái minh chứng:* `[TODO - Viết lại sau: Đính kèm ảnh check-in rõ mặt]`
+3. **[Event 3 - AWS First Cloud AI Journey Community Day 2026](4.3-Event3/)**
+   - *Thời gian:* 09:00 – 12:00, ngày 31/10/2026 | *Vai trò:* Người tham dự (Attendee)
+   - *Trạng thái minh chứng:* Đã đính kèm ảnh check-in rõ mặt (`event3-checkin.jpg`)
