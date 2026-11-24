@@ -46,6 +46,6 @@ pre: " <b> 4.3. </b> "
 
 ### Bài học rút ra & Đóng góp cá nhân
 
-- **Ứng dụng trực tiếp Amazon SQS vào đồ án OJT:** Kiến thức từ phiên *Amazon SQS: Building Asynchronous Systems* liên kết trực tiếp với kiến trúc hàng đợi **SQS + DLQ** đang triển khai trong workshop **AI Code Judge Pipeline** để tách rời khâu nhận bài và khâu chấm điểm AI.
-- **Cân nhắc đúng bài toán chi phí & compute:** So sánh thực tế giữa Serverless (Lambda Web Functions / Active CPU Billing) và container trên EC2/ECS giúp chọn đúng kiến trúc theo đặc thù workload thay vì chạy theo xu hướng.
-- **Kỷ luật học tập & đóng góp cộng đồng:** Áp dụng tinh thần duy trì thói quen đều đặn từ phiên *Open Source Contributing* vào việc ghi chép worklog, chia sẻ bài viết kỹ thuật và hoàn thiện dự án thực tập 12 tuần.
+- **Hiểu rõ vai trò của kiến trúc bất đồng bộ:** Kiến thức từ phiên *Amazon SQS: Building Asynchronous Systems* giúp nắm vững cách tách rời (decouple) các tác vụ xử lý nặng bằng hàng đợi để tăng độ ổn định và khả năng mở rộng cho hệ thống.
+- **Cân nhắc đúng bài toán chi phí & compute:** So sánh thực tế giữa Serverless (**AWS Lambda Web Functions** / **Active CPU Billing**) và container trên EC2/ECS giúp biết cách chọn kiến trúc theo đặc thù workload thay vì chạy theo xu hướng.
+- **Kỷ luật học tập & đóng góp cộng đồng:** Áp dụng tinh thần duy trì thói quen đều đặn từ phiên *Open Source Contributing* vào việc tự học hằng tuần, chia sẻ bài viết kỹ thuật và tham gia tích cực các hoạt động cộng đồng AWS.

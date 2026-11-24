@@ -44,4 +44,4 @@ pre: " <b> 4.1. </b> "
 
 - **Tư duy kiến trúc gắn với thực tiễn:** Một hệ thống AI hiệu quả trên Cloud không chỉ phụ thuộc vào mô hình mà cần thiết kế bài bản từ dữ liệu (**RAG / Knowledge Bases**), prompt cho đến cách tích hợp các dịch vụ AWS.
 - **Kỹ năng cộng tác & phản biện kỹ thuật:** Chủ động giao lưu qua phần **Ice-breaking**, kết nối với đồng đội và đặt câu hỏi trực tiếp cho mentor trong phiên **Q&A** và **Hands-on** để tháo gỡ nhanh các vướng mắc về kiến trúc.
-- **Ứng dụng vào đồ án OJT:** Vận dụng tư duy thiết kế pipeline AI có kiểm soát và kinh nghiệm thực hành từ buổi kick-off vào quá trình triển khai workshop **AI Code Judge Pipeline** trong kỳ thực tập.
+- **Định hướng phát triển kỹ năng Cloud & AI:** Củng cố lộ trình tự học nền tảng AWS kết hợp thực hành các bài lab **Generative AI** và **AI Agents**, sẵn sàng cho các thử thách kỹ thuật trong cộng đồng FCAJ.

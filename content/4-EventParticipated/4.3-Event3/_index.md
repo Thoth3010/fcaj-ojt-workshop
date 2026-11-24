@@ -46,6 +46,6 @@ pre: " <b> 4.3. </b> "
 
 ### Key Takeaways & Personal Contribution
 
-- **Direct Application of Amazon SQS to OJT Project:** Insights from the *Amazon SQS: Building Asynchronous Systems* session directly reinforce the **SQS + DLQ** decoupling pattern implemented in the **AI Code Judge Pipeline** workshop.
-- **Pragmatic Compute Trade-offs:** Live benchmarks comparing **AWS Lambda Web Functions** (Active CPU Billing) with Docker on EC2/ECS highlighted how to choose compute options based on actual workload characteristics.
-- **Consistency & Engineering Discipline:** Applying the steady-habit mindset from *Open Source Contributing* to maintain consistent worklogs, technical blog sharing, and steady progress across the 12-week OJT program.
+- **Asynchronous Architecture Mindset:** Insights from *Amazon SQS: Building Asynchronous Systems* clarified how message queues decouple heavy workloads to improve resilience and scalability in modern cloud systems.
+- **Pragmatic Compute Trade-offs:** Live benchmarks comparing **AWS Lambda Web Functions** (**Active CPU Billing**) with Docker on EC2/ECS highlighted how to choose compute options based on actual workload characteristics.
+- **Consistency & Community Contribution:** Applying the steady-habit mindset from *Open Source Contributing* to maintain consistent self-study, technical knowledge sharing, and active participation in the AWS community.

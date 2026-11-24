@@ -44,4 +44,4 @@ pre: " <b> 4.1. </b> "
 
 - **Architecture-First AI Mindset:** Building reliable AI solutions on AWS requires more than a capable model—it depends on well-structured **RAG / Knowledge Bases**, clear prompting, and proper cloud integration.
 - **Collaboration & Mentorship:** Actively connected with teammates during **Ice-breaking** and engaged mentors during **Q&A** and **Hands-on** to sharpen technical problem-solving under time constraints.
-- **Application to OJT Project:** Applied the structured AI workflow principles learned at the kickoff directly toward designing and implementing the **AI Code Judge Pipeline** workshop during the OJT internship.
+- **Cloud & AI Skill Roadmap:** Built a clearer learning roadmap combining core AWS fundamentals with hands-on **Generative AI** and **AI Agents** practice for upcoming FCAJ community challenges.
