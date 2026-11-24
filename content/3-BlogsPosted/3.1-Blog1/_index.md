@@ -7,7 +7,7 @@ pre: " <b> 3.1. </b> "
 ---
 
 {{% notice info %}}
-🔗 **AWS Study Group Post Link:** `[TODO - Update later: Paste the live URL of your post in the AWS Study Group Facebook group or awsstudygroup.com]`
+🔗 **AWS Study Group Post Link:** [Facebook post](https://www.facebook.com/share/p/1FJJYqU4Rp/)
 {{% /notice %}}
 
 # Cost Optimization Strategies for Deploying Local LLMs (Qwen3) on AWS EC2 GPU with Amazon SQS

@@ -7,7 +7,7 @@ pre: " <b> 3.3. </b> "
 ---
 
 {{% notice info %}}
-🔗 **Link bài đăng AWS Study Group:** `[TODO - Viết lại sau: Dán URL bài đăng của bạn trên nhóm Facebook AWS Study Group hoặc awsstudygroup.com vào đây]`
+🔗 **Link bài đăng AWS Study Group:** [Facebook post](https://www.facebook.com/share/p/19vbHFir6p/)
 {{% /notice %}}
 
 # Thực hành Bảo mật Ứng dụng AI trên AWS: IAM Least Privilege, SSM Parameter Store và Chống rò rỉ Secret

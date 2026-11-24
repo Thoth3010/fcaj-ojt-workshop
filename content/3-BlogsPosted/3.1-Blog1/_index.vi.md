@@ -7,7 +7,7 @@ pre: " <b> 3.1. </b> "
 ---
 
 {{% notice info %}}
-🔗 **Link bài đăng AWS Study Group:** `[TODO - Viết lại sau: Dán URL bài đăng của bạn trên nhóm Facebook AWS Study Group hoặc awsstudygroup.com vào đây]`
+🔗 **Link bài đăng AWS Study Group:** [Facebook post](https://www.facebook.com/share/p/1FJJYqU4Rp/)
 {{% /notice %}}
 
 # Chiến lược Tối ưu Chi phí (Cost Optimization) khi Triển khai Local LLM (Qwen3) trên AWS EC2 GPU kết hợp Amazon SQS

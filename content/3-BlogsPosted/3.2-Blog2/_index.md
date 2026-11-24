@@ -7,7 +7,7 @@ pre: " <b> 3.2. </b> "
 ---
 
 {{% notice info %}}
-🔗 **AWS Study Group Post Link:** `[TODO - Update later: Paste the live URL of your post in the AWS Study Group Facebook group or awsstudygroup.com]`
+🔗 **AWS Study Group Post Link:** [Facebook post](https://www.facebook.com/share/p/1BYTn5tpyW/)
 {{% /notice %}}
 
 # Designing a Fault-Tolerant Asynchronous Pipeline with Amazon SQS, Dead-Letter Queues (DLQ), and S3 Idempotency

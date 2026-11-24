@@ -7,7 +7,7 @@ pre: " <b> 3.2. </b> "
 ---
 
 {{% notice info %}}
-🔗 **Link bài đăng AWS Study Group:** `[TODO - Viết lại sau: Dán URL bài đăng của bạn trên nhóm Facebook AWS Study Group hoặc awsstudygroup.com vào đây]`
+🔗 **Link bài đăng AWS Study Group:** [Facebook post](https://www.facebook.com/share/p/1BYTn5tpyW/)
 {{% /notice %}}
 
 # Thiết kế Pipeline Xử lý Bất đồng bộ Chịu lỗi (Fault-Tolerant) với Amazon SQS, Dead-Letter Queue (DLQ) và Amazon S3 Idempotency

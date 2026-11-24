@@ -7,7 +7,7 @@ pre: " <b> 3.3. </b> "
 ---
 
 {{% notice info %}}
-🔗 **AWS Study Group Post Link:** `[TODO - Update later: Paste the live URL of your post in the AWS Study Group Facebook group or awsstudygroup.com]`
+🔗 **AWS Study Group Post Link:** [Facebook post](https://www.facebook.com/share/p/19vbHFir6p/)
 {{% /notice %}}
 
 # Securing AI Workloads on AWS: IAM Least Privilege, SSM Parameter Store & Secret Redaction
