@@ -6,28 +6,24 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Feel free to personalize these reflections with specific moments from your office sessions, mentors, and FCAJ teammates before submitting.
-{{% /notice %}}
-
 ### 1. Overall Experience with the First Cloud AI Journey (FCAJ) Program
 
-Joining the **Workforce Bootcamp - First Cloud AI Journey (FCAJ)** internship has been a pivotal step in bridging academic study at **FPT University** with production-grade **AWS Cloud Engineering**. Rather than treating cloud services in isolation, the program challenged me to apply my **Artificial Intelligence (AI)** background to build an end-to-end real-world platform under realistic constraints on security, reliability, and cloud cost.
+Joining the **First Cloud AI Journey (FCAJ)** program has been an important stepping stone in bridging academic study at **FPT University** with practical **AWS** engineering standards. Beyond helping me systematically build foundational Cloud knowledge, the program kept me up to date with emerging trends in **Generative AI**, **RAG**, and **Agentic AI** through its curriculum, community, and live events.
 
 ### 2. Satisfaction Level
 
 - **Overall Satisfaction:** **Very Satisfied (5/5)**.
 - **Key Highlights:**
-  1. A structured milestone progression: AWS foundations -> Proposal & Cost Estimation -> Hands-on Implementation -> CloudWatch Testing & Validation -> Bilingual Documentation.
-  2. Strong emphasis on the **AWS Well-Architected Framework**, instilling disciplined engineering habits around **IAM Least Privilege**, secret hygiene, and thorough **resource clean-up**.
-  3. An encouraging **AWS Study Group** community that motivates interns to publish technical blogs and participate in real industry events.
+  1. A well-structured learning progression from Cloud fundamentals (`Cloud Foundations`, `VPC`, `EC2`, `S3`, `IAM`) to modern services (`Serverless`, `Event-Driven`, `AI/GenAI`).
+  2. Strong emphasis on security and cost governance from the very first labs (`MFA`, `IAM Least Privilege`, `AWS Budgets`, and resource clean-up).
+  3. The **AWS Study Group VN** community and in-person events (`Buildathon Kick-off`, `AWS Cloud & AI Day Hanoi`, `Community Day`) create an open, supportive environment to learn directly from mentors and practitioners.
 
 ### 3. Areas for Improvement
 
-- The transition from foundational AWS labs to multi-team system integration (Backend, Frontend, AI Worker, and Cloud Infra) moves quickly; an additional dedicated session on **Contract-first Integration & IAM/SQS Troubleshooting** across sub-teams would reduce early integration friction.
-- Providing a quick-start checklist on Day 1 for **AWS Budgets & Free Tier Billing Alarms** would give interns even greater confidence when experimenting with hourly compute services.
+- The volume of labs and lessons becomes fairly dense during the middle weeks; adding concise cheat-sheets of common `IAM` and `VPC` misconfigurations per module would help newcomers troubleshoot faster.
+- Extending the duration of short **Hands-on mini challenges** during offline events would give attendees more time for direct, on-the-spot Q&A with mentors.
 
 ### 4. Would I Recommend FCAJ to Friends? Why?
 
 - **Definitely YES.**
-- **Why:** FCAJ delivers an authentic **"learn by architecting, building, and measuring"** experience on real AWS infrastructure. Interns go far beyond following static tutorials: they design their own architecture, estimate real workloads with the AWS Pricing Calculator, troubleshoot production-like failures, and deliver a complete, reproducible bilingual workshop—invaluable preparation for any future Cloud or AI Engineer.
+- **Why:** FCAJ provides a proactive, industry-aligned learning environment that stays closely connected to fast-moving technologies—especially Cloud + AI. Beyond preparing for AWS certifications, the program builds strong habits in technical writing, community sharing, and architectural thinking, which are invaluable for any IT/AI student entering the industry.

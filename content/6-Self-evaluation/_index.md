@@ -6,26 +6,22 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** This self-evaluation table has been drafted based on your work on the SEAL Hackathon & AI Judge Worker project. Please review and personalize the ratings (**Good / Fair / Average**) and specific reflections before final submission.
-{{% /notice %}}
-
-### Internship Self-Evaluation Matrix (8 Mandatory Criteria)
+### Internship Self-Evaluation Matrix
 
 | No. | Evaluation Criteria | Self-Rating | Specific Reflection & Evidence |
 | :-: | :--- | :---: | :--- |
-| 1 | **Technical Knowledge** | **Good** | Solid grasp of core AWS services (`EC2`, `VPC`, `IAM`, `S3`, `SQS`, `Lambda`, `RDS`, `SSM`, `CloudWatch`). Applied AI engineering skills to integrate `Qwen3` (Ollama) and Cloud AI APIs (`DeepSeek` / `Gemini`) into an asynchronous code-evaluation pipeline with 100% JSON schema compliance. |
-| 2 | **Self-Learning & Research** | **Good** | Independently researched `KV Cache quantization (q8_0)`, Flash Attention, structured JSON output constraints, and the AWS Well-Architected Framework to optimize inference speed and keep cloud spending minimal on Free Tier and Spot instances. |
-| 3 | **Proactiveness** | **Good** | Proactively identified VRAM bottlenecks, designed the Smart Repo Slicing mechanism (`code_cleaner.py`), and executed live EC2 benchmarks in `ap-southeast-1` to provide quantitative decision data for the team. |
-| 4 | **Discipline & Compliance** | **Good** | Strictly enforced security hygiene (zero hardcoded secrets, automatic secret redaction, `IAM Least Privilege`, `SSM Parameter Store`), performed complete post-lab resource clean-up (`$0.00` unintended charges), and maintained consistent worklogs. |
-| 5 | **Communication Skills** | **Fair** | Authored clear bilingual technical proposals, benchmark reports, and integration contracts. Continuing to refine concise verbal storytelling during live technical demos. |
-| 6 | **Teamwork** | **Good** | Collaborated closely with the Team Lead, Backend (BE1/BE2), and Frontend teams to standardize the `fcaj.ai.message.v1` / `fcaj.ai.output.v1` contracts and validate end-to-end SQS/S3 integration smoothly. |
-| 7 | **Problem-Solving Capability** | **Good** | Resolved 4 key engineering challenges: context overflow on 90k+ token repos (`Smart Repo Slicing`), LLM weighted-score miscalculation (`Python post-processing`), secret leakage in evidence (`redact_secrets`), and job timeout retries (`SQS Heartbeat` & `DLQ`). |
-| 8 | **Contribution to Workshop** | **Good** | Designed and implemented an end-to-end personal technical workshop on **Asynchronous AI Code Judge Pipeline on AWS**, complete with provisioning commands, automated unit/integration tests (`13/13 PASS`), cost estimation, and clean-up procedures. |
+| 1 | **Technical Knowledge** | **Good** | Solid grasp of core AWS services (`VPC`, `EC2`, `IAM`, `S3`, `RDS`, `DynamoDB`, `Lambda`, `SQS`, `CloudWatch`) through the First Cloud Journey curriculum and technical event sessions. |
+| 2 | **Self-Learning & Research** | **Good** | Proactively studied official AWS documentation and AWS Blogs on emerging topics in the Vibe Coding era (`AWS MCP Server`, `AWS IaC MCP Server`, `Amazon Bedrock AgentCore Harness`, `Strands Harness`), synthesizing 3 fact-checked technical posts. |
+| 3 | **Proactiveness** | **Good** | Consistently followed the weekly learning roadmap, actively attended all 3 community/technical events (`FCAJ Buildathon Kick-off`, `AWS Cloud & AI Day Hanoi 2026`, `FCAJ Community Day 2026`), and engaged mentors with targeted questions. |
+| 4 | **Discipline & Compliance** | **Good** | Strictly followed AWS security hygiene (`Virtual MFA`, `IAM Least Privilege`, `AWS Budgets` cost alerts), cleaned up lab resources after practice, and maintained regular worklogs. |
+| 5 | **Communication Skills** | **Fair** | Authored clear, approachable technical articles for learners (3 posts on AWS Study Group VN and bilingual reports). Continuing to build confidence in live verbal presentations and technical discussions. |
+| 6 | **Teamwork** | **Good** | Actively connected with peers during Ice-breaking activities and collaborated in the group hands-on session (`AI Agent Challenge`) with mentor guidance. |
+| 7 | **Problem-Solving Capability** | **Good** | Approached engineering problems from architectural fundamentals (identifying pitfalls in AI-generated `AWS CLI`/IaC, decoupling workloads with `Amazon SQS`, and governing AI Agent behavior with `Lifecycle Hooks`). |
+| 8 | **Community & Program Contribution** | **Good** | Contributed 3 practical technical posts on the AWS ecosystem in the Vibe Coding era to **AWS Study Group VN**, alongside complete internship worklogs and verified reports for all 3 FCAJ events. |
 
 ---
 
 ### Post-Internship Growth Goals
 
-- Deepen hands-on expertise in Infrastructure as Code (**Terraform / AWS CDK**) to provision multi-tier VPC, SQS, S3, Lambda, and GPU EC2 stacks declaratively.
-- Strengthen live English technical presentation skills and design larger-scale fault-tolerant distributed AI workloads with end-to-end observability.
+- Deepen hands-on practice with Infrastructure as Code (**AWS CDK** / **AWS CloudFormation**) paired with automated checks (`cfn-lint`, `cfn-guard`) to standardize cloud provisioning.
+- Strengthen technical English communication and gain deeper hands-on experience building **AI Agents** and **Serverless** systems on AWS.

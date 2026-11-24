@@ -6,26 +6,22 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Bảng dưới đây đã được điền sẵn đánh giá tham khảo dựa trên quá trình thực hiện đề tài SEAL Hackathon & AI Judge Worker. Bạn hãy rà soát và điều chỉnh lại mức **Tốt / Khá / Trung bình** và nhận xét cụ thể sao cho đúng nhất với bản thân trước khi nộp.
-{{% /notice %}}
-
-### Bảng Tự Đánh Giá Năng Lực Thực Tập (8 Tiêu Chí Bắt Buộc)
+### Bảng Tự Đánh Giá Năng Lực Thực Tập
 
 | STT | Tiêu chí đánh giá | Tự xếp loại | Nhận xét & Minh chứng cụ thể |
 | :-: | :--- | :---: | :--- |
-| 1 | **Kiến thức chuyên môn** | **Tốt** | Nắm vững các dịch vụ cốt lõi trên AWS (`EC2`, `VPC`, `IAM`, `S3`, `SQS`, `Lambda`, `RDS`, `SSM`, `CloudWatch`). Áp dụng kiến thức chuyên ngành AI để tích hợp mô hình Qwen3 (Ollama) và Cloud AI API (`DeepSeek` / `Gemini`) vào pipeline chấm mã nguồn bất đồng bộ đạt độ chính xác schema 100%. |
-| 2 | **Khả năng tự học & nghiên cứu** | **Tốt** | Tự nghiên cứu kỹ thuật lượng tử hóa `KV Cache (q8_0)`, Flash Attention, cơ chế Grammar-Constrained JSON Output và các chuẩn thiết kế AWS Well-Architected Framework để tối ưu hóa tốc độ cũng như chi phí vận hành AI trên hạ tầng Free Tier và Spot Instance. |
-| 3 | **Tính chủ động trong công việc** | **Tốt** | Chủ động phân tích rào cản VRAM, đề xuất giải pháp Smart Repo Slicing (`code_cleaner.py`) và chủ động thực hiện benchmark thực tế trên EC2 `ap-southeast-1` để nhóm có số liệu ra quyết định kiến trúc rõ ràng. |
-| 4 | **Kỷ luật & tuân thủ quy định** | **Tốt** | Tuân thủ nghiêm ngặt quy tắc bảo mật (không hard-code credential, che secret tự động, dùng `IAM Least Privilege`, `SSM Parameter Store`), dọn dẹp tài nguyên sạch sẽ sau lab (`$0.00` chi phí ngoài dự kiến) và ghi nhận worklog đều đặn. |
-| 5 | **Kỹ năng giao tiếp** | **Khá** | Trình bày và viết tài liệu kỹ thuật mạch lạc (báo cáo benchmark, proposal chuyển đổi Local AI, review code bằng cả tiếng Việt và tiếng Anh). Tiếp tục rèn luyện khả năng trình bày ngắn gọn, súc tích hơn khi demo sản phẩm trực tiếp. |
-| 6 | **Làm việc nhóm (Teamwork)** | **Tốt** | Phối hợp chặt chẽ với Lead, Backend (BE1/BE2) và Frontend để thống nhất contract `fcaj.ai.message.v1` / `fcaj.ai.output.v1`, kiểm thử tích hợp end-to-end qua S3 và SQS mà không làm gián đoạn luồng làm việc của các thành viên khác. |
-| 7 | **Năng lực giải quyết vấn đề** | **Tốt** | Giải quyết dứt điểm 4 bài toán kỹ thuật lớn: tràn ngữ cảnh repo 90k+ tokens (`Smart Repo Slicing`), lỗi LLM tính nhầm điểm trọng số (`Python post-processing`), lỗi rò rỉ secret trong snippet (`redact_secrets`), và rủi ro mất job khi timeout (`SQS Heartbeat` & `DLQ`). |
-| 8 | **Đóng góp cho Workshop** | **Tốt** | Tự thiết kế và xây dựng hoàn chỉnh Workshop kỹ thuật cá nhân về hệ thống **Asynchronous AI Code Judge Pipeline trên AWS**, kèm script triển khai, bộ kiểm thử tự động (`13/13 PASS`), bảng dự toán chi phí và hướng dẫn dọn dẹp tài nguyên chi tiết. |
+| 1 | **Kiến thức chuyên môn** | **Tốt** | Nắm vững các dịch vụ nền tảng trên AWS (`VPC`, `EC2`, `IAM`, `S3`, `RDS`, `DynamoDB`, `Lambda`, `SQS`, `CloudWatch`) thông qua lộ trình First Cloud Journey và các phiên chuyên đề tại sự kiện. |
+| 2 | **Khả năng tự học & nghiên cứu** | **Tốt** | Chủ động tìm hiểu tài liệu chính thức và AWS Blogs về các chủ đề mới trong kỷ nguyên Vibe Coding (`AWS MCP Server`, `AWS IaC MCP Server`, `Amazon Bedrock AgentCore Harness`, `Strands Harness`), tổng hợp thành 3 bài chia sẻ chuyên môn có kiểm chứng nguồn. |
+| 3 | **Tính chủ động trong công việc** | **Tốt** | Chủ động theo sát lộ trình học tập hàng tuần, tham gia đầy đủ cả 3 sự kiện cộng đồng/chuyên môn (`FCAJ Buildathon Kick-off`, `AWS Cloud & AI Day Hanoi 2026`, `FCAJ Community Day 2026`) và chủ động đặt câu hỏi với mentor. |
+| 4 | **Kỷ luật & tuân thủ quy định** | **Tốt** | Tuân thủ nguyên tắc bảo mật khi thực hành AWS (`Virtual MFA`, `IAM Least Privilege`, `AWS Budgets` cảnh báo chi phí), dọn dẹp tài nguyên sau khi làm lab và ghi chép Worklog đều đặn. |
+| 5 | **Kỹ năng giao tiếp** | **Khá** | Viết và trình bày nội dung kỹ thuật rõ ràng, dễ hiểu cho người mới học (thể hiện qua 3 bài chia sẻ trên AWS Study Group VN và báo cáo song ngữ). Tiếp tục rèn luyện kỹ năng trình bày và phản biện trực tiếp tự tin hơn. |
+| 6 | **Làm việc nhóm (Teamwork)** | **Tốt** | Tích cực kết nối, giao lưu tìm hiểu thế mạnh của các thành viên qua hoạt động Ice-breaking và phần thực hành nhóm (`AI Agent Challenge`) cùng sự hỗ trợ của mentor. |
+| 7 | **Năng lực giải quyết vấn đề** | **Tốt** | Biết cách tiếp cận bài toán từ gốc rễ kiến trúc (nhận diện bẫy khi dùng AI sinh lệnh `AWS CLI` hay viết IaC không kiểm soát, hiểu cách dùng `Amazon SQS` tách rời xử lý bất đồng bộ và kiểm soát hành vi AI Agent bằng `Lifecycle Hooks`). |
+| 8 | **Đóng góp cho Cộng đồng & Chương trình** | **Tốt** | Đóng góp 3 bài viết kỹ thuật thực chiến về hệ sinh thái AWS cho kỷ nguyên Vibe Coding lên cộng đồng **AWS Study Group VN**, đồng thời hoàn thành đầy đủ báo cáo nhật ký và minh chứng tham dự 3 sự kiện FCAJ. |
 
 ---
 
 ### Định Hướng Cải Thiện Sau Kỳ Thực Tập
 
-- Mở rộng kinh nghiệm thực chiến với Infrastructure as Code (**Terraform / AWS CDK**) để tự động hóa hoàn toàn hạ tầng VPC, SQS, S3, Lambda và EC2 GPU chỉ bằng một lệnh.
-- Nâng cao kỹ năng trình bày kỹ thuật bằng tiếng Anh và tối ưu hóa khả năng thiết kế hệ thống chịu tải cao (High-throughput Distributed Systems) kết hợp Cloud Observability chuyên sâu.
+- Tiếp tục thực hành sâu hơn về Infrastructure as Code (**AWS CDK** / **AWS CloudFormation**) kết hợp kiểm thử tự động (`cfn-lint`, `cfn-guard`) để chuẩn hóa quy trình triển khai hạ tầng.
+- Nâng cao khả năng tiếng Anh chuyên ngành và tích lũy thêm kinh nghiệm thực chiến với các hệ thống **AI Agents** và **Serverless** trên AWS.
