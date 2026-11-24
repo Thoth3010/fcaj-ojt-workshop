@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-{{% notice info %}}
-🔗 **Bài đăng trên AWS Study Group:** [Xem bài viết Facebook](https://www.facebook.com/share/p/1BYTn5tpyW/)
-{{% /notice %}}
-
 **VIBE CODING HẠ TẦNG AWS: TẠI SAO CẦN INFRASTRUCTURE AS CODE & AWS IaC MCP SERVER?**
 
 Ở bài trước mình có nói về `AWS CLI` trong thời đại Vibe Coding. Sang bước tiếp theo, AI giúp viết code ứng dụng cực nhanh, nhưng khi nhờ AI dựng luôn hạ tầng AWS bằng các lệnh rời rạc thì rất dễ rơi vào cảnh "chạy được lúc demo, khó kiểm soát lúc lên production". Vậy Vibe Coder cần nắm nền tảng gì và AWS đã chuẩn bị công cụ nào cho bài toán hạ tầng?

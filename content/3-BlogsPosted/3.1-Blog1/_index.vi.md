@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-{{% notice info %}}
-🔗 **Bài đăng trên AWS Study Group:** [Xem bài viết Facebook](https://www.facebook.com/share/p/1FJJYqU4Rp/)
-{{% /notice %}}
-
 **AWS CLI TRONG THỜI ĐẠI VIBE CODING: TỪ GÕ LỆNH THỦ CÔNG ĐẾN AWS MCP SERVER**
 
 Trước đây, kỹ sư làm việc với AWS thường mở terminal lên và tự gõ từng dòng lệnh `aws ...`. Sang thời đại Vibe Coding — khi nhiều người dùng AI coding agent (Claude Code, Cursor, Kiro...) để dựng hệ thống bằng câu lệnh tự nhiên — cách chúng ta dùng dòng lệnh để tương tác với AWS cũng đang thay đổi rất nhanh.

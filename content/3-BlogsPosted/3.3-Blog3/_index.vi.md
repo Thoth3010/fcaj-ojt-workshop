@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-{{% notice info %}}
-🔗 **Bài đăng trên AWS Study Group:** [Xem bài viết Facebook](https://www.facebook.com/share/p/19vbHFir6p/)
-{{% /notice %}}
-
 **AGENT HARNESS CỦA AWS LÀ GÌ? CÁCH AMAZON BEDROCK AGENTCORE HARNESS ĐƯA AI AGENT TỪ DEMO LÊN PRODUCTION**
 
 Tự vibe code ra một AI Agent chạy được trên laptop trong một buổi chiều bây giờ không còn khó. Nhưng khi muốn đưa nó lên production phục vụ nhiều người dùng thật, nút thắt thường không nằm ở model thông minh tới đâu — mà nằm ở lớp hạ tầng và điều phối bao quanh nó, thứ gọi là **Agent Harness**.

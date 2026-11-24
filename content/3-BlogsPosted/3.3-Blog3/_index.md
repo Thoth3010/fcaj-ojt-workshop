@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-{{% notice info %}}
-🔗 **AWS Study Group post:** [View the Facebook post](https://www.facebook.com/share/p/19vbHFir6p/)
-{{% /notice %}}
-
 # What Is an AWS Agent Harness? Taking AI Agents from Demo to Production with Amazon Bedrock AgentCore
 
 Building an AI agent that runs on a laptop is no longer especially difficult. Production introduces the real challenge: the model needs a sandbox, memory, tools and MCP connections, identity, concurrency controls, logs, traces, and deterministic checks around risky actions. The orchestration layer around the model is the Agent Harness.

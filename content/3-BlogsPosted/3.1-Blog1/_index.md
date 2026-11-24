@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-{{% notice info %}}
-🔗 **AWS Study Group post:** [View the Facebook post](https://www.facebook.com/share/p/1FJJYqU4Rp/)
-{{% /notice %}}
-
 # AWS CLI in the Vibe Coding Era: From Manual Commands to AWS MCP Server
 
 Engineers traditionally interact with AWS by typing individual aws commands in a terminal. In the Vibe Coding era, developers increasingly ask coding agents such as Claude Code, Cursor, or Kiro to build systems from natural-language instructions. This changes how command-line access to AWS should be designed and governed.

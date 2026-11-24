@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-{{% notice info %}}
-🔗 **AWS Study Group post:** [View the Facebook post](https://www.facebook.com/share/p/1BYTn5tpyW/)
-{{% /notice %}}
-
 # Vibe Coding AWS Infrastructure: Why Infrastructure as Code and AWS IaC MCP Server Matter
 
 AI can produce application code quickly. Letting an agent provision AWS infrastructure through disconnected commands, however, often creates systems that work in a demo but are difficult to control in production. Vibe Coders therefore need a solid Infrastructure as Code foundation.
