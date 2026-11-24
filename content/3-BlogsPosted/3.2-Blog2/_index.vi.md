@@ -10,72 +10,44 @@ pre: " <b> 3.2. </b> "
 🔗 **Bài đăng trên AWS Study Group:** [Xem bài viết Facebook](https://www.facebook.com/share/p/1BYTn5tpyW/)
 {{% /notice %}}
 
-# Vibe Coding hạ tầng AWS: Tại sao cần Infrastructure as Code và AWS IaC MCP Server?
+**VIBE CODING HẠ TẦNG AWS: TẠI SAO CẦN INFRASTRUCTURE AS CODE & AWS IaC MCP SERVER?**
 
-AI giúp viết code ứng dụng rất nhanh. Tuy nhiên, nếu để AI dựng hạ tầng AWS bằng những lệnh rời rạc, hệ thống có thể chạy được ở bản demo nhưng khó kiểm soát khi đưa lên production. Vì vậy, Vibe Coder cần hiểu Infrastructure as Code và các công cụ AWS hỗ trợ quy trình này.
+Ở bài trước mình có nói về `AWS CLI` trong thời đại Vibe Coding. Sang bước tiếp theo, AI giúp viết code ứng dụng cực nhanh, nhưng khi nhờ AI dựng luôn hạ tầng AWS bằng các lệnh rời rạc thì rất dễ rơi vào cảnh "chạy được lúc demo, khó kiểm soát lúc lên production". Vậy Vibe Coder cần nắm nền tảng gì và AWS đã chuẩn bị công cụ nào cho bài toán hạ tầng?
 
-![Quy trình AWS IaC MCP Server](https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2026/08/04/figure1-iac-mcp-workflow.png)
+**1. Kiến thức nền cho Vibe Coder: Infrastructure as Code (IaC) trên AWS là gì?**
 
-## 1. Infrastructure as Code trên AWS
+Thay vì bấm tay trên Console hay chạy từng dòng `AWS CLI` rời rạc, **Infrastructure as Code (IaC)** cho phép định nghĩa toàn bộ tài nguyên AWS dưới dạng file code để triển khai đồng nhất, lặp lại được và dễ kiểm soát tuân thủ. Trên AWS có 2 công cụ IaC gốc phổ biến nhất:
+* **AWS CloudFormation:** Khai báo hạ tầng dưới dạng template JSON/YAML.
+* **AWS Cloud Development Kit (AWS CDK):** Viết hạ tầng bằng ngôn ngữ lập trình quen thuộc (như TypeScript, Python...) rồi biên dịch ra CloudFormation.
 
-Infrastructure as Code cho phép định nghĩa tài nguyên AWS trong file code để triển khai đồng nhất, lặp lại được và dễ kiểm soát tuân thủ.
+Với Vibe Coder, yêu cầu AI xuất ra template **CloudFormation** hoặc **AWS CDK** thay vì câu lệnh rời giúp bạn dễ review trên Git, kiểm soát thay đổi và quản lý vòng đời tài nguyên bài bản hơn.
 
-Hai công cụ IaC gốc phổ biến trên AWS là:
+**2. 3 điểm nghẽn khi Vibe Coder để AI tự viết CloudFormation / CDK**
 
-- **AWS CloudFormation:** khai báo hạ tầng bằng template JSON hoặc YAML.
-- **AWS Cloud Development Kit:** viết hạ tầng bằng TypeScript, Python và các ngôn ngữ quen thuộc, sau đó tổng hợp thành CloudFormation.
+Theo ghi nhận từ đội ngũ AWS DevOps, nếu chỉ dùng AI thuần theo kiểu chat thông thường, quy trình làm IaC rất dễ vướng 3 điểm nghẽn:
+* **Dữ liệu cũ, sai thuộc tính tài nguyên:** Không tra cứu tài liệu live khiến AI dễ đoán nhầm tên property hoặc bỏ qua best practices mới.
+* **Chuyển đổi qua lại quá nhiều công cụ:** Kỹ sư phải nhảy liên tục giữa trang tài liệu, linter, console triển khai và log chỉ cho một vòng lặp viết – kiểm tra – deploy.
+* **Mò lỗi triển khai mất thời gian:** Khi CloudFormation stack báo lỗi như `AccessDenied` hoặc rơi vào trạng thái `ROLLBACK_COMPLETE`, stack event nhiều khi không chỉ rõ thiếu permission gì — buộc bạn phải tự mở **AWS CloudTrail** đối chiếu từng API call.
 
-Với Vibe Coding, yêu cầu AI tạo CloudFormation hoặc AWS CDK giúp thay đổi được review trên Git và quản lý vòng đời bài bản hơn một chuỗi AWS CLI command.
+**3. AWS chuẩn bị gì cho kỷ nguyên Vibe Coding? — AWS IaC MCP Server**
 
-## 2. Ba điểm nghẽn khi AI tự viết CloudFormation hoặc CDK
+Để giải quyết đúng các điểm nghẽn trên, AWS đã phát hành **AWS Infrastructure as Code (IaC) MCP Server** (`awslabs.aws-iac-mcp-server`) chạy cục bộ qua `uv` (giao tiếp `stdio`, không mở port mạng) cho các AI assistant hỗ trợ MCP như **Kiro**, **Kiro CLI**, **Claude** hay **Cursor**.
 
-### Dữ liệu cũ hoặc sai thuộc tính
+Theo đúng quy trình **4 bước (`Author → Validate → Deploy → Troubleshoot`)** trên sơ đồ đính kèm, server này cung cấp 9 tool chuyên biệt:
+* **Step 1 — Author (Tra docs & viết template chuẩn):** Dùng các tool kết nối AWS Knowledge MCP backend (`search_cloudformation_documentation`, `search_cdk_documentation`, `search_cdk_samples_and_constructs`, `read_iac_documentation_page`) cùng `cdk_best_practices` để lấy đúng cú pháp tài nguyên và mẫu chuẩn trước khi sinh code.
+* **Step 2 — Validate (Bắt lỗi cú pháp & bảo mật ngay tại máy):** Dùng `validate_cloudformation_template` (bọc `cfn-lint` kiểm tra cấu trúc/schema) và `check_cloudformation_template_compliance` (bọc `cfn-guard` kiểm tra bảo mật như mã hóa S3, Block Public Access, log retention). Bước này chạy hoàn toàn local, chưa cần quyền AWS.
+* **Step 3 — Deploy:** Triển khai template đã kiểm tra qua `AWS CLI` (ngoài ra có tool `get_cloudformation_pre_deploy_validation_instructions` hỗ trợ cấu hình kiểm tra trước khi tạo change set).
+* **Step 4 — Troubleshoot (Chẩn đoán lỗi bằng CloudTrail):** Khi deploy thất bại, tool `troubleshoot_cloudformation_deployment` tự lấy stack events đối chiếu với **AWS CloudTrail** để chỉ ra chính xác permission còn thiếu (ví dụ thiếu `iam:PassRole` khi gắn role cho Lambda).
 
-Nếu không tra cứu tài liệu live, AI có thể dùng sai property hoặc bỏ qua best practices mới.
+**4. Lưu ý an toàn & thói quen thực tế cho Vibe Coder**
 
-### Chuyển đổi qua nhiều công cụ
+* **Phân quyền tối thiểu (Least Privilege):** Các tool validate/compliance không cần quyền AWS; còn khi troubleshoot, chỉ cần cấp quyền **read-only** (`cloudformation:DescribeStacks`, `DescribeStackEvents`, `DescribeStackResources`, `cloudtrail:LookupEvents`).
+* **Lưu ý bảo mật dữ liệu:** Server chạy local qua `stdio` (chỉ kết nối ngoài khi tra documentation), nhưng dữ liệu phản hồi khi troubleshoot sẽ đi qua AI model provider bạn dùng (Kiro, Claude, Cursor...) — hãy đảm bảo tuân thủ quy định bảo mật của tổ chức.
+* **Mẹo khi troubleshoot:** Sự kiện trên **CloudTrail** thường mất khoảng **5–15 phút** mới xuất hiện sau lúc deploy lỗi, nên hãy đợi ít nhất 5 phút trước khi chạy bước troubleshoot để phân tích đầy đủ nhất.
 
-Kỹ sư phải liên tục chuyển giữa documentation, linter, console triển khai và log chỉ để hoàn thành một vòng viết, kiểm tra và deploy.
+**Tóm lại:** Muốn vibe code hạ tầng AWS nhanh mà vẫn chuẩn production, hãy yêu cầu AI tạo **CloudFormation / AWS CDK** kết hợp **AWS IaC MCP Server** để khép kín vòng lặp tra docs mới → check cú pháp & bảo mật tại máy → deploy → tìm nguyên nhân lỗi ngay trong một khung chat.
 
-### Khó tìm nguyên nhân deploy thất bại
-
-CloudFormation stack có thể báo AccessDenied hoặc ROLLBACK_COMPLETE nhưng stack events chưa chỉ rõ permission còn thiếu. Người vận hành phải đối chiếu thêm AWS CloudTrail.
-
-## 3. AWS Infrastructure as Code MCP Server
-
-AWS IaC MCP Server chạy cục bộ qua stdio và hỗ trợ các AI assistant tương thích MCP. Công cụ này khép kín quy trình bốn bước:
-
-### Author
-
-Các tool tìm kiếm CloudFormation/CDK documentation, sample và construct giúp agent lấy đúng schema và best practices trước khi sinh code.
-
-### Validate
-
-- **validate_cloudformation_template** dùng cfn-lint để kiểm tra cấu trúc và schema.
-- **check_cloudformation_template_compliance** dùng cfn-guard để kiểm tra yêu cầu như mã hóa S3, Block Public Access hoặc log retention.
-
-Hai bước này chạy local và chưa cần quyền AWS.
-
-### Deploy
-
-Template đã kiểm tra được triển khai qua AWS CLI. Pre-deployment validation có thể được cấu hình trước khi tạo change set.
-
-### Troubleshoot
-
-**troubleshoot_cloudformation_deployment** kết hợp stack events với AWS CloudTrail để xác định permission còn thiếu, chẳng hạn iam:PassRole khi gắn role cho Lambda.
-
-## 4. Lưu ý an toàn
-
-- Các bước validate không cần quyền AWS; troubleshoot chỉ cần quyền đọc CloudFormation và CloudTrail.
-- Dữ liệu trả về cho AI model provider phải tuân thủ quy định bảo mật của tổ chức.
-- CloudTrail có thể cần 5–15 phút để hiển thị event sau một deployment lỗi.
-
-## Kết luận
-
-Để Vibe Code hạ tầng AWS nhanh nhưng vẫn sẵn sàng cho production, nên yêu cầu AI tạo CloudFormation hoặc AWS CDK và dùng AWS IaC MCP Server cho vòng lặp Author → Validate → Deploy → Troubleshoot.
-
-## Nguồn tham khảo
-
-- [Accelerate CloudFormation development with the IaC MCP Server — AWS DevOps Blog](https://aws.amazon.com/blogs/devops/accelerate-cloudformation-development-with-the-iac-mcp-server/)
-- [Introducing the AWS Infrastructure as Code MCP Server — AWS DevOps Blog](https://aws.amazon.com/blogs/devops/introducing-the-aws-infrastructure-as-code-mcp-server-ai-powered-cdk-and-cloudformation-assistance/)
-- [Nguồn ảnh — AWS DevOps Blog](https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2026/08/04/figure1-iac-mcp-workflow.png)
+**Nguồn tham khảo:**
+* Accelerate CloudFormation development with the IaC MCP Server — AWS DevOps & Developer Productivity Blog (https://aws.amazon.com/blogs/devops/accelerate-cloudformation-development-with-the-iac-mcp-server/)
+* Introducing the AWS Infrastructure as Code MCP Server: AI-Powered CDK and CloudFormation Assistance — AWS DevOps & Developer Productivity Blog (https://aws.amazon.com/blogs/devops/introducing-the-aws-infrastructure-as-code-mcp-server-ai-powered-cdk-and-cloudformation-assistance/)
+* **Nguồn ảnh:** AWS DevOps & Developer Productivity Blog — *Accelerate CloudFormation development with the IaC MCP Server* (https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2026/08/04/figure1-iac-mcp-workflow.png)
