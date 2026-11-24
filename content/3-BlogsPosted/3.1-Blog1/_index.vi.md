@@ -7,7 +7,7 @@ pre: " <b> 3.1. </b> "
 ---
 
 {{% notice info %}}
-🔗 **Bài đăng trên AWS Study Group:** [Xem bài viết Facebook](https://www.facebook.com/share/p/19vbHFir6p/)
+🔗 **Bài đăng trên AWS Study Group:** [Xem bài viết Facebook](https://www.facebook.com/share/p/1FJJYqU4Rp/)
 {{% /notice %}}
 
 **AWS CLI TRONG THỜI ĐẠI VIBE CODING: TỪ GÕ LỆNH THỦ CÔNG ĐẾN AWS MCP SERVER**

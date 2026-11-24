@@ -7,7 +7,7 @@ pre: " <b> 3.1. </b> "
 ---
 
 {{% notice info %}}
-🔗 **AWS Study Group post:** [View the Facebook post](https://www.facebook.com/share/p/19vbHFir6p/)
+🔗 **AWS Study Group post:** [View the Facebook post](https://www.facebook.com/share/p/1FJJYqU4Rp/)
 {{% /notice %}}
 
 # AWS CLI in the Vibe Coding Era: From Manual Commands to AWS MCP Server

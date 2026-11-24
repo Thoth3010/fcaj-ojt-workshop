@@ -7,7 +7,7 @@ pre: " <b> 3.3. </b> "
 ---
 
 {{% notice info %}}
-🔗 **AWS Study Group post:** [View the Facebook post](https://www.facebook.com/share/p/1FJJYqU4Rp/)
+🔗 **AWS Study Group post:** [View the Facebook post](https://www.facebook.com/share/p/19vbHFir6p/)
 {{% /notice %}}
 
 # What Is an AWS Agent Harness? Taking AI Agents from Demo to Production with Amazon Bedrock AgentCore
