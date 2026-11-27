@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
-{{% /notice %}}
-
 ### Mục tiêu tuần 11 (23/11/2026 – 27/11/2026)
 
 * Hoàn thiện hệ thống giám sát **CloudWatch Logs, Metrics, Alarms & Amazon SNS** cho pipeline AI Judge.

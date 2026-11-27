@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 11 Objectives (23/11/2026 – 27/11/2026)
 
 * Finalize **CloudWatch Logs, Metrics, Alarms & Amazon SNS** observability for the AI Judge pipeline.

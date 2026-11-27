@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 6 Objectives (19/10/2026 – 23/10/2026)
 
 * Complete **Module 05 (Part 2 — Advanced IAM, Tagging, KMS, CloudTrail & Athena)**: `Lab 27`, `Lab 28`, `Lab 30`, `Lab 33`, `Lab 44`, `Lab 48`.

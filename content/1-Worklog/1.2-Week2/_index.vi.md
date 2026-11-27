@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
-{{% /notice %}}
-
 ### Mục tiêu tuần 2 (21/09/2026 – 26/09/2026)
 
 * Hoàn thành **Module 02 (Phần 1 — Mạng ảo Amazon VPC & Hybrid DNS)**: `02-01` → `02-03`, `Lab 03` (Subnets, Route Table, IGW, NAT Gateway, Security Group, NACL, EC2 Instance Connect Endpoint) và `Lab 10` (Route 53 Resolver Hybrid DNS).

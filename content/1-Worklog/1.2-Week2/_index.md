@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 2 Objectives (21/09/2026 – 26/09/2026)
 
 * Complete **Module 02 (Part 1 — Amazon VPC & Hybrid DNS)**: `02-01` to `02-03`, `Lab 03` (Subnets, Route Tables, IGW, NAT Gateway, Security Groups, NACLs, EC2 Instance Connect Endpoint), and `Lab 10` (Route 53 Resolver Hybrid DNS).

@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
-{{% /notice %}}
-
 ### Mục tiêu tuần 3 (28/09/2026 – 02/10/2026)
 
 * Hoàn thành **Module 02 (Phần 2 — Kết nối Multi-VPC)**: `Lab 19` (VPC Peering) và `Lab 20` (AWS Transit Gateway).

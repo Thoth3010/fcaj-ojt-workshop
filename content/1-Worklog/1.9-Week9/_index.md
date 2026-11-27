@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 9 Objectives (09/11/2026 – 13/11/2026)
 
 * Complete **Module 07 (Part 2 — Data Pipeline, Firehose, Glue, DataBrew, EMR, Athena, Kinesis, QuickSight & Lambda Serving)**: `Lab 35`, `Lab 70`, `Lab 72`, `Lab 73`.

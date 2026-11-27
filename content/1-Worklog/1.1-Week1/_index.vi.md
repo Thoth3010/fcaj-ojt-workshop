@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
-{{% /notice %}}
-
 ### Mục tiêu tuần 1 (14/09/2026 – 18/09/2026)
 
 * Tham dự Kick-off **First Cloud Journey**, nắm quy trình làm workshop và cách vẽ kiến trúc AWS chuẩn trên `draw.io`.

@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 4 Objectives (05/10/2026 – 09/10/2026)
 
 * Complete **Module 03 (Part 2 — Storage Gateway & S3/CloudFront)**: `Lab 24` & `Lab 57`.

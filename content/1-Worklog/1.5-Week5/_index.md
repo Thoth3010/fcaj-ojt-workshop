@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 5 Objectives (12/10/2026 – 16/10/2026)
 
 * Complete **Module 04 (Part 2 — Amazon FSx `Lab 25`)** and **Module 05 (Part 1 — Security, IAM, KMS, Security Hub `Lab 18` & Lambda EC2 Start/Stop `Lab 22`)**.

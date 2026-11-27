@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Nhật ký 12 tuần (`14/09/2026 – 14/12/2026`) dưới đây đã phân bổ lộ trình 295+ video thuộc khóa học chính thức **First Cloud Journey (`PLahN4TLWtox2a3vElknwzU_urND8hLn1i`)** kết hợp cùng tiến độ thực chiến xây dựng dự án **SEAL Hackathon Platform & AI Judge (`ai-worker/`)** của nhóm. Bạn hãy kiểm tra và điều chỉnh lại lịch chi tiết nếu cần nhé!
-{{% /notice %}}
-
 ### Tổng quan Nhật ký Thực tập 12 Tuần (`14/09/2026 – 14/12/2026`)
 
 1. **[Tuần 1 (14/09 – 18/09/2026)](1.1-week1/):** Kick-off First Cloud Journey & **Module 01** (Cloud Foundations, Tạo AWS Account, Virtual MFA, Admin Group/User, AWS Budgets & Support).

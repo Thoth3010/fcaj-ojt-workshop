@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
-{{% /notice %}}
-
 ### Mục tiêu tuần 6 (19/10/2026 – 23/10/2026)
 
 * Hoàn thành **Module 05 (Phần 2 — IAM Chuyên sâu, Tagging, KMS, CloudTrail & Athena)**: `Lab 27`, `Lab 28`, `Lab 30`, `Lab 33`, `Lab 44`, `Lab 48`.

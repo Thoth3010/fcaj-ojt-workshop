@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
-{{% /notice %}}
-
 ### Mục tiêu tuần 9 (09/11/2026 – 13/11/2026)
 
 * Hoàn thành **Module 07 (Phần 2 — Data Pipeline, Firehose, Glue, DataBrew, EMR, Athena, Kinesis, QuickSight & Lambda Serving)**: `Lab 35`, `Lab 70`, `Lab 72`, `Lab 73`.

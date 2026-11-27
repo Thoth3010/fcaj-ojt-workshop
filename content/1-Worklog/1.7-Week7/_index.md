@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 7 Objectives (26/10/2026 – 31/10/2026)
 
 * Complete **Module 06 (Databases on AWS)**: `06-01` to `06-03` (RDS, Aurora, Redshift, ElastiCache), `Lab 05` (VPC + EC2 + RDS & Backup/Restore), and `Lab 43` (AWS DMS & Schema Conversion).

@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 10 Objectives (16/11/2026 – 20/11/2026)
 
 * Apply **Serverless Event-Driven (`07-Lab39`, `05-Lab22`)** and **IAM Role (`05-Lab48`)** patterns to the **SEAL Hackathon AWS v3 Architecture**.

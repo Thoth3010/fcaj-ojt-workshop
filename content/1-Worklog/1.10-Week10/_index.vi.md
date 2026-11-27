@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
-{{% /notice %}}
-
 ### Mục tiêu tuần 10 (16/11/2026 – 20/11/2026)
 
 * Ôn tập & áp dụng thực chiến mẫu **Serverless Event-Driven (`07-Lab39`, `05-Lab22`)** và **IAM Role (`05-Lab48`)** vào **Kiến trúc AWS v3 của Dự án SEAL Hackathon**.

@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 3 Objectives (28/09/2026 – 02/10/2026)
 
 * Complete **Module 02 (Part 2 — Multi-VPC Connectivity)**: `Lab 19` (VPC Peering) and `Lab 20` (AWS Transit Gateway).

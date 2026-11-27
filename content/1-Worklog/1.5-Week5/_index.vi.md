@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
-{{% /notice %}}
-
 ### Mục tiêu tuần 5 (12/10/2026 – 16/10/2026)
 
 * Hoàn thành **Module 04 (Phần 2 — Amazon FSx `Lab 25`)** và **Module 05 (Phần 1 — Security, IAM, KMS, Security Hub `Lab 18` & Lambda Start/Stop EC2 `Lab 22`)**.

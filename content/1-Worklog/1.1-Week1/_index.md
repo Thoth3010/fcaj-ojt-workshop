@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 1 Objectives (14/09/2026 – 18/09/2026)
 
 * Complete the **First Cloud Journey Kick-off**, AWS `draw.io` architecture diagramming guide, and Workshop execution guidelines.

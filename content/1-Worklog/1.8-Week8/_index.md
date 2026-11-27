@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** Review and adjust daily work items below to match your exact personal schedule if needed.
-{{% /notice %}}
-
 ### Week 8 Objectives (02/11/2026 – 06/11/2026)
 
 * Complete **Module 07 (Part 1 — DynamoDB Serverless Event-Driven, Cost Tagging & AWS SDK)**: `Lab 39`, `Lab 40`, `Lab 60`.

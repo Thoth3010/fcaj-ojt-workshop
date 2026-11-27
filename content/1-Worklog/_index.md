@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice info %}}
-📝 **`[TODO - Update later]`:** This 12-week worklog (`14/09/2026 – 14/12/2026`) schedules the official **First Cloud Journey (`PLahN4TLWtox2a3vElknwzU_urND8hLn1i`)** video curriculum across your internship timeline alongside hands-on development of the **SEAL Hackathon Platform & AI Judge (`ai-worker/`)** project. Review and adjust individual days if needed.
-{{% /notice %}}
-
 ### 12-Week Internship Worklog Overview (`14/09/2026 – 14/12/2026`)
 
 1. **[Week 1 (14/09 – 18/09/2026)](1.1-week1/):** First Cloud Journey Kick-off & **Module 01** (Cloud Foundations, AWS Account Setup, Virtual MFA, Admin Group/User, AWS Budgets & Support).
