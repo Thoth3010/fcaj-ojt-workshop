@@ -10,9 +10,10 @@ pre: " <b> 1.2. </b> "
 📝 **`[TODO - Viết lại sau]`:** Kiểm tra và điều chỉnh lại chi tiết công việc từng ngày cho khớp 100% với lịch cá nhân của bạn nếu cần.
 {{% /notice %}}
 
-### Mục tiêu tuần 2 (21/09/2026 – 25/09/2026)
+### Mục tiêu tuần 2 (21/09/2026 – 26/09/2026)
 
 * Hoàn thành **Module 02 (Phần 1 — Mạng ảo Amazon VPC & Hybrid DNS)**: `02-01` → `02-03`, `Lab 03` (Subnets, Route Table, IGW, NAT Gateway, Security Group, NACL, EC2 Instance Connect Endpoint) và `Lab 10` (Route 53 Resolver Hybrid DNS).
+* Tham dự sự kiện **Kick-off FCAJ Buildathon 2026** (26/09/2026).
 
 ### Nhật ký công việc hàng ngày
 
@@ -23,9 +24,11 @@ pre: " <b> 1.2. </b> "
 | **4** | - **Thực hành Module 02-Lab03 (03.1 → 04.5):** Tự tạo VPC, Subnet, IGW, Route Table, Security Group, EC2 trong Public/Private Subnet, NAT Gateway & EC2 Instance Connect Endpoint. | 23/09/2026 | 23/09/2026 | - [Lab03-03.1 Create VPC](https://www.youtube.com/watch?v=I-5gTPDCOI8&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i)<br>- [Lab03-04.1 EC2 in Subnets](https://www.youtube.com/watch?v=duJEdF_g1To&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i)<br>- [Lab03-04.5 EC2 Connect Endpoint](https://www.youtube.com/watch?v=7NjNTnXon5s&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i) |
 | **5** | - **Thực hành Module 02-Lab10 (01 → 05.1):** Thiết lập Hybrid DNS với Route 53 Resolver — Key Pair, CloudFormation Template, Security Group, RDGW & Outbound Endpoint. | 24/09/2026 | 24/09/2026 | - [Lab10-01 Hybrid DNS](https://www.youtube.com/watch?v=FGicpWOmMDI&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i)<br>- [Lab10-02.2 CloudFormation](https://www.youtube.com/watch?v=EQ-5P6U7Ph4&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i)<br>- [Lab10-05.1 Outbound Endpoint](https://www.youtube.com/watch?v=YRNb7bJFtQU&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i) |
 | **6** | - **Thực hành Module 02-Lab10 (05.2 → 06):** Cấu hình Route 53 Resolver Rules, Inbound Endpoints, kiểm thử kết quả phân giải DNS & Clean up toàn bộ tài nguyên. | 25/09/2026 | 25/09/2026 | - [Lab10-05.2 Resolver Rules](https://www.youtube.com/watch?v=3KwnJsVivOs&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i)<br>- [Lab10-05.4 Test Results](https://www.youtube.com/watch?v=r-00KoWbC8c&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i)<br>- [Lab10-06 Clean Up](https://www.youtube.com/watch?v=5lMR8zA_DXU&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i) |
+| **7** | - **Tham dự sự kiện Event 1 — Kick-off FCAJ Buildathon 2026 (09:00 – 11:20):** Nghe phổ biến thể lệ & tiêu chí Buildathon, Talkshow *Building a Career in Cloud & AI*, Q&A và thực hành **Hands-on: AI Agent Challenge** (Prompt Engineering, RAG, Knowledge Bases, AI Agents). | 26/09/2026 | 26/09/2026 | - [Event 1: Kick-off FCAJ Buildathon 2026](../../4-eventparticipated/4.1-event1/) |
 
 ### Kết quả đạt được tuần 2
 
 * Thành thạo thiết kế mạng VPC chuẩn Public/Private Subnet, định tuyến qua IGW/NAT Gateway và kiểm soát lưu lượng bằng Security Group / NACL.
 * Biết cách sử dụng **EC2 Instance Connect Endpoint** để kết nối private EC2 không cần Public IP.
 * Hoàn tất triển khai và dọn dẹp sạch bài lab **Route 53 Resolver Hybrid DNS (`Lab 10`)**.
+* Tham dự đầy đủ **Kick-off FCAJ Buildathon 2026**, kết nối cộng đồng và thực hành mini challenge về **AI Agent / RAG**.
