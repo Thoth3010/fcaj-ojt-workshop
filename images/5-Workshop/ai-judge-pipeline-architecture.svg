@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1e293b"/>
+    </marker>
+    <marker id="arr-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/>
+    </marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="#f8fafc"/>
+
+  <!-- Top Header -->
+  <rect x="0" y="0" width="1200" height="58" fill="#232f3e"/>
+  <text x="28" y="36" fill="#ffffff" font-size="19" font-weight="700">Workshop Architecture — Asynchronous AI Code Judge Pipeline on AWS (ap-southeast-1)</text>
+  <text x="1172" y="36" fill="#ff9900" font-size="13" font-weight="600" text-anchor="end">S3 + SQS (DLQ) + EC2 Qwen3 / Lambda + CloudWatch</text>
+
+  <!-- Step 1: Producer / Dispatch -->
+  <rect x="28" y="96" width="210" height="170" rx="10" fill="#ffffff" stroke="#3b82f6" stroke-width="2" filter="url(#card-shadow)"/>
+  <rect x="28" y="96" width="210" height="32" rx="10" fill="#eff6ff"/>
+  <text x="133" y="117" fill="#1e3a8a" font-size="13" font-weight="700" text-anchor="middle">1. Job Producer / CLI</text>
+  <text x="133" y="150" fill="#334155" font-size="12" font-weight="600" text-anchor="middle">Backend / Test Script</text>
+  <text x="44" y="176" fill="#475569" font-size="11">• Uploads immutable snapshot</text>
+  <text x="44" y="194" fill="#475569" font-size="11">  (source.json, rubric.json)</text>
+  <text x="44" y="212" fill="#475569" font-size="11">• Computes SHA-256 + bytes</text>
+  <text x="44" y="230" fill="#475569" font-size="11">• Sends fcaj.ai.message.v1</text>
+  <text x="44" y="248" fill="#475569" font-size="11">  (AI_JOB_REQUESTED)</text>
+
+  <!-- Step 2: Amazon S3 Private Bucket -->
+  <rect x="300" y="84" width="250" height="145" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="2" filter="url(#card-shadow)"/>
+  <rect x="300" y="84" width="250" height="32" rx="10" fill="#f0fdf4"/>
+  <text x="425" y="105" fill="#14532d" font-size="13" font-weight="700" text-anchor="middle">2. Amazon S3 (Private Bucket)</text>
+  <text x="316" y="136" fill="#334155" font-size="11" font-weight="600">Block Public Access: ON | SSE-S3</text>
+  <text x="316" y="158" fill="#475569" font-size="11">• inputs/{jobId}/input-manifest.json</text>
+  <text x="316" y="176" fill="#475569" font-size="11">• inputs/{jobId}/source.json</text>
+  <text x="316" y="194" fill="#475569" font-size="11">• rubrics/{rubricId}.json</text>
+  <text x="316" y="212" fill="#0f766e" font-size="11" font-weight="600">• results/{jobId}/output.json (IfNoneMatch)</text>
+
+  <!-- Step 3: SQS Jobs + DLQ -->
+  <rect x="300" y="264" width="250" height="170" rx="10" fill="#ffffff" stroke="#ec4899" stroke-width="2" filter="url(#card-shadow)"/>
+  <rect x="300" y="264" width="250" height="32" rx="10" fill="#fdf2f8"/>
+  <text x="425" y="285" fill="#831843" font-size="13" font-weight="700" text-anchor="middle">3. Amazon SQS (Jobs Queue)</text>
+  <text x="316" y="316" fill="#334155" font-size="11" font-weight="600">fcaj-ai-jobs-queue</text>
+  <text x="316" y="334" fill="#475569" font-size="11">• Long Polling: 20s</text>
+  <text x="316" y="352" fill="#475569" font-size="11">• VisibilityTimeout: 120s (or 720s)</text>
+  <text x="316" y="370" fill="#475569" font-size="11">• RedrivePolicy: maxReceiveCount = 3</text>
+  <rect x="316" y="384" width="218" height="36" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="425" y="406" fill="#991b1b" font-size="11" font-weight="700" text-anchor="middle">Jobs DLQ (fcaj-ai-jobs-dlq)</text>
+
+  <!-- Step 4: AI Judge Worker -->
+  <rect x="618" y="84" width="278" height="350" rx="10" fill="#ffffff" stroke="#f97316" stroke-width="2.2" filter="url(#card-shadow)"/>
+  <rect x="618" y="84" width="278" height="34" rx="10" fill="#fff7ed"/>
+  <text x="757" y="106" fill="#9a3412" font-size="14" font-weight="700" text-anchor="middle">4. AI Judge Worker (IAM Least Priv)</text>
+
+  <rect x="634" y="132" width="246" height="90" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="757" y="152" fill="#92400e" font-size="12" font-weight="700" text-anchor="middle">Option A: EC2 Local AI (Qwen3)</text>
+  <text x="646" y="170" fill="#475569" font-size="11">• Ollama + Qwen3 (FlashAttn + KV q8_0)</text>
+  <text x="646" y="186" fill="#475569" font-size="11">• Smart Repo Slicing &amp; Heartbeat</text>
+  <text x="646" y="202" fill="#475569" font-size="11">• SQS Poller (sqs_worker.py)</text>
+
+  <rect x="634" y="234" width="246" height="86" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.2"/>
+  <text x="757" y="254" fill="#0369a1" font-size="12" font-weight="700" text-anchor="middle">Option B: AWS Lambda (Python 3.12)</text>
+  <text x="646" y="272" fill="#475569" font-size="11">• BatchSize=1 | ReportBatchItemFailures</text>
+  <text x="646" y="288" fill="#475569" font-size="11">• MaxConcurrency=2 | Cloud AI API</text>
+  <text x="646" y="304" fill="#475569" font-size="11">• Reads Key from SSM Parameter Store</text>
+
+  <rect x="634" y="332" width="246" height="88" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.2"/>
+  <text x="757" y="352" fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle">Post-Processing &amp; Security Guards</text>
+  <text x="646" y="370" fill="#475569" font-size="11">• SHA-256 Input Verification</text>
+  <text x="646" y="386" fill="#475569" font-size="11">• Weighted Score Math + /no_think</text>
+  <text x="646" y="402" fill="#475569" font-size="11">• redact_secrets() &amp; Anti-Injection</text>
+
+  <!-- Step 5: Results Queue + Consumer -->
+  <rect x="954" y="84" width="220" height="170" rx="10" fill="#ffffff" stroke="#ec4899" stroke-width="2" filter="url(#card-shadow)"/>
+  <rect x="954" y="84" width="220" height="32" rx="10" fill="#fdf2f8"/>
+  <text x="1064" y="105" fill="#831843" font-size="13" font-weight="700" text-anchor="middle">5. SQS Results + DLQ</text>
+  <text x="970" y="138" fill="#334155" font-size="11" font-weight="600">fcaj-ai-results-queue</text>
+  <text x="970" y="158" fill="#475569" font-size="11">• AI_JOB_COMPLETED event</text>
+  <text x="970" y="176" fill="#475569" font-size="11">• Output SHA-256 + S3 Key</text>
+  <text x="970" y="194" fill="#475569" font-size="11">• Backend reads output.json</text>
+  <rect x="970" y="208" width="188" height="32" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="1064" y="228" fill="#991b1b" font-size="11" font-weight="700" text-anchor="middle">Results DLQ</text>
+
+  <!-- Step 6: SSM + CloudWatch + SNS -->
+  <rect x="954" y="280" width="220" height="154" rx="10" fill="#ffffff" stroke="#0d9488" stroke-width="2" filter="url(#card-shadow)"/>
+  <rect x="954" y="280" width="220" height="32" rx="10" fill="#f0fdfa"/>
+  <text x="1064" y="301" fill="#115e59" font-size="13" font-weight="700" text-anchor="middle">6. SSM &amp; Observability</text>
+  <text x="970" y="334" fill="#334155" font-size="11" font-weight="600">AWS Systems Manager</text>
+  <text x="970" y="350" fill="#475569" font-size="11">• SecureString API Keys</text>
+  <text x="970" y="374" fill="#334155" font-size="11" font-weight="600">CloudWatch + SNS</text>
+  <text x="970" y="392" fill="#475569" font-size="11">• /aws/lambda/ &amp; EC2 Logs</text>
+  <text x="970" y="410" fill="#475569" font-size="11">• DLQ &gt; 0 &amp; Error Alarms -&gt; Email</text>
+
+  <!-- IAM Box Bottom -->
+  <rect x="28" y="486" width="1146" height="136" rx="10" fill="#ffffff" stroke="#64748b" stroke-width="1.5" filter="url(#card-shadow)"/>
+  <text x="48" y="514" fill="#0f172a" font-size="14" font-weight="700">Security, Reliability &amp; Cost Optimization Controls (AWS Well-Architected)</text>
+  <text x="48" y="542" fill="#334155" font-size="12">1. IAM Least Privilege: Worker can only read inputs/rubrics/*, write results/*, consume Jobs SQS, publish Results SQS, and read 1 SSM SecureString parameter.</text>
+  <text x="48" y="566" fill="#334155" font-size="12">2. Idempotency &amp; Data Integrity: SHA-256 verification on S3 artifacts + conditional PutObject (If-None-Match: "*") prevents duplicate results on SQS retries.</text>
+  <text x="48" y="590" fill="#334155" font-size="12">3. Cost Optimization: SQS decouples API from inference so EC2 GPU stays Stopped when idle (~$0 idle compute; ~$0.017/job via DeepSeek or Spot EC2).</text>
+
+  <!-- Arrows -->
+  <line x1="238" y1="156" x2="298" y2="156" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="268" y="148" fill="#1e293b" font-size="11" font-weight="700" text-anchor="middle">(1)</text>
+
+  <path d="M 238 220 L 268 220 L 268 330 L 298 330" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <text x="268" y="280" fill="#d97706" font-size="11" font-weight="700" text-anchor="middle">(2)</text>
+
+  <line x1="550" y1="330" x2="616" y2="330" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <text x="583" y="320" fill="#d97706" font-size="11" font-weight="700" text-anchor="middle">(3)</text>
+
+  <!-- Worker reads/writes S3 -->
+  <line x1="618" y1="156" x2="552" y2="156" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="618" y1="196" x2="552" y2="196" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="585" y="148" fill="#1e293b" font-size="11" font-weight="700" text-anchor="middle">(4)</text>
+
+  <!-- Worker sends to Results SQS -->
+  <path d="M 896 170 L 952 170" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <text x="924" y="160" fill="#d97706" font-size="11" font-weight="700" text-anchor="middle">(5)</text>
+
+  <!-- Worker to SSM / CloudWatch -->
+  <line x1="896" y1="356" x2="952" y2="356" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="924" y="346" fill="#1e293b" font-size="11" font-weight="700" text-anchor="middle">(6)</text>
+
+  <!-- DLQ Alarm Arrow -->
+  <path d="M 534 402 L 580 402 L 580 456 L 1064 456 L 1064 436" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5,4" marker-end="url(#arr-red)"/>
+  <text x="820" y="450" fill="#dc2626" font-size="11" font-weight="700" text-anchor="middle">DLQ Metric Alarm (ApproximateNumberOfMessagesVisible &gt; 0)</text>
+
+  <!-- Bottom note -->
+  <text x="28" y="662" fill="#64748b" font-size="12">Diagram prepared by Triệu Minh Quân — FCAJ OJT Technical Workshop (You may also replace with exported draw.io PNG)</text>
+</svg>
